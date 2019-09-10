@@ -606,3 +606,5 @@ Stack trace:
 [09-Sep-2019 23:53:53 America/Sao_Paulo] PHP Notice:  Trying to get property 'id_prod' of non-object in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php on line 14
 [09-Sep-2019 23:54:11 America/Sao_Paulo] PHP Notice:  Trying to get property 'id_prod' of non-object in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php on line 14
 [09-Sep-2019 23:54:59 America/Sao_Paulo] PHP Notice:  Trying to get property 'id_prod' of non-object in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php on line 14
+[10-Sep-2019 00:50:34 America/Sao_Paulo] PHP Notice:  Undefined variable: drive in /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/model.php on line 6
+[10-Sep-2019 00:50:34 America/Sao_Paulo] PHP Notice:  Undefined variable: drive in /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/model.php on line 8
