@@ -6,7 +6,7 @@ $base_url= '/2019/tsi/dsw/apiProds';//localhost Apache Local
 
 //DB
 $user = 'root';
-$password = 'r00t';
+$password = '';
 $host = 'localhost';
 $name = 'apiprod';
 $drive = 'mysql';
