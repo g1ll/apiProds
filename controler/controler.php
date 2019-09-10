@@ -32,14 +32,14 @@ function router($query=null){
         }
 
         if($action && $method==='get')
-            if (sizeof($params) == 2) $action($params[1]);
-            elseif (sizeof($params) == 3) $action($params[1], $params[2]);
-            elseif (sizeof($params) == 4) $action($params[1], $params[2], $params[3]);
-            else $action();
+            if (sizeof($params) == 2) sendjson($action($params[1]));
+            elseif (sizeof($params) == 3) sendjson($action($params[1], $params[2]));
+            elseif (sizeof($params) == 4) sendjson($action($params[1], $params[2], $params[3]));
+            else sendjson($action());
         elseif($action)
             if($method==='put'||$method==='delete'){
-                $action(json_decode(file_get_contents("php://input")));
-            } else{$action();}
+                sendjson($action(json_decode(file_get_contents("php://input"))));
+            } else{sendjson($action());}
         else debug("ERROR ACTION REQUEST");
 
     }else{
@@ -62,7 +62,7 @@ function pageNotFound(){
 
 function debugJSON($var){
     sendjson($var);
-    throw  new Exception("Testado!!!!");
+//    throw  new Exception("Testado!!!!");
 }
 
 function debug($var){
@@ -83,7 +83,7 @@ function debug_vardump_backtrace($var) {
     return $trace;
 }
 
-function sendjson($var){
+function sendjson($var=NULL){
     header('Content-Type: application/json');
     echo json_encode($var);
 }
