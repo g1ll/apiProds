@@ -9,12 +9,12 @@ function getAllProdutos($id=null,$qtd=null,$desc=false){
     $totalRows = getTotalRows()+1;
     $sql = "SELECT * FROM produtos";
     if($id!=0)
-        $sql.=($id>0)?" WHERE id_prod".(($desc)?">= :id && id_prod < (:id+:qtd) ":">=:id")
-            :" WHERE id_prod".(($desc)?">= $totalRows +:id && id_prod < ($totalRows +:id+:qtd) ":">=$totalRows+:id");
-    $sql.=" ORDER BY id_prod ".(($desc)?"DESC ":"ASC ");
+        $sql.=($id>0)?" WHERE id_prod".(($desc)?" >= :id && id_prod < (:id+:qtd) ":" >= :id")
+            :" WHERE id_prod".(($desc)?" >= $totalRows +:id &&
+             id_prod < ($totalRows +:id+:qtd) ":" >= $totalRows + :id");
+    $sql.=" ORDER BY id_prod ".(($desc)?"DESC ":"");
     $sql.=($qtd)?" LIMIT :qtd ":'';
     $par = ($qtd&&$id)?[':id'=>$id,':qtd'=>$qtd]: (($qtd)?[':qtd'=>$qtd]:[]);
-
     $result = executeQuery($sql, $par);
     $listProd = [];
     foreach ($result as $prod) {
@@ -88,6 +88,20 @@ function insertProduto($produto,$returnLastId){
     $result = executeCommand($sql,$params,$returnLastId);
     if($result){
         return $result;
+    }else{
+        return false;
+    }
+}
+
+function updateProduto($produto) {
+    $sql = "UPDATE `produtos` SET nome=:nome,descricao=:descricao,
+                      qtd_estoque=:qtd_estoque,preco=:preco,importado=:importado";
+    $sql .= " WHERE id_prod =:id_prod";
+    $param = [':nome'=>$produto['nome'],':nome'=>$produto['nome'],
+        ':text'=>$noticia->getText(),
+        ':id'=>$noticia->getIdnoticia()];
+    if($this->ExecuteCommand($sql, $param)){
+        return true;
     }else{
         return false;
     }
