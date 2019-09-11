@@ -2,7 +2,7 @@
 require './model/produtoDAO.php';
 
 function upd_produto($data=null){
-    return ["confirm"=>true,"msg"=>"PROD ID: $data->id_prod EDITADO"];
+    return ["confirm"=>true,"msg"=>"PROD ID: $data->id_prod EDITADO","produto"=>$data];
 }
 
 function del_produto($data=null){
@@ -15,10 +15,10 @@ function del_produto($data=null){
     }
 }
 
-function get_produto($id = null,$qtd=null){
-    if(!$id||($id&&$qtd)){
-        $offset = $id;
-        $data  = getAllProdutos($offset,$qtd);
+function get_produto($id = null,$qtd=null,$desc=false){
+
+    if($id&&$qtd||(int)$id==0){
+        $data  = getAllProdutos(intval($id),intval($qtd),$desc);
     }else {
         $data = getProduto($id);
     }
@@ -26,5 +26,24 @@ function get_produto($id = null,$qtd=null){
 }
 
 function add_produto(){
-    return ["confirm"=>false,"msg"=>'falha ao conectar no banco!',"data"=>$_POST];
+    if($_POST){
+        $produto=[
+            'nome'=>filter_input(INPUT_POST,'nome',FILTER_SANITIZE_STRING),
+            'descricao'=>filter_input(INPUT_POST,'descricao',FILTER_SANITIZE_STRING),
+            'qtd_estoque'=>filter_input(INPUT_POST,'qtd_estoque',FILTER_SANITIZE_NUMBER_INT),
+            'preco'=>filter_input(INPUT_POST,'preco',FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION),
+            'importado'=>filter_input(INPUT_POST,'importado',FILTER_SANITIZE_NUMBER_INT),
+            'descontos'=>filter_input(INPUT_POST,'desco'),
+            'itens'=>filter_input(INPUT_POST,'itens')
+        ];
+
+        $produto['id_prod'] = insertProduto($produto,true);
+        if($produto['id_prod'])
+            return ["confirm"=>true,"msg"=>'Produto adicionado',"produto"=>$produto];
+        else
+            return ["confirm"=>true,"msg"=>'falha ao executar tarefa no banco',"produto"=>$produto];
+    }else{
+        return ["confirm"=>false,"msg"=>'Erro ao receber parametros',"produto"=>$_POST];
+    }
+
 }

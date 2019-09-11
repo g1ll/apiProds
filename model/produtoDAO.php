@@ -1,14 +1,21 @@
 <?php
 require './model/model.php';
 
-function getAllProdutos($offset=null,$qtd=null){
+function getTotalRows(){
+    return intval(executeQuery("SELECT count(*) as total FROM produtos",[])[0]['total']);
+}
 
-    $sql = "SELECT * FROM produtos ORDER BY id_prod ASC";
-    $sql.=(($qtd&&$offset)?" LIMIT :offset, :qtd ":(($qtd)?" LIMIT :qtd ":''));
-    $par = ($qtd&&$offset)?[':offset'=>intval($offset-1),':qtd'=>intval($qtd)]:
-        (($qtd)?[':qtd'=>intval($qtd)]:[]);
+function getAllProdutos($id=null,$qtd=null,$desc=false){
+    $totalRows = getTotalRows()+1;
+    $sql = "SELECT * FROM produtos";
+    if($id!=0)
+        $sql.=($id>0)?" WHERE id_prod".(($desc)?">= :id && id_prod < (:id+:qtd) ":">=:id")
+            :" WHERE id_prod".(($desc)?">= $totalRows +:id && id_prod < ($totalRows +:id+:qtd) ":">=$totalRows+:id");
+    $sql.=" ORDER BY id_prod ".(($desc)?"DESC ":"ASC ");
+    $sql.=($qtd)?" LIMIT :qtd ":'';
+    $par = ($qtd&&$id)?[':id'=>$id,':qtd'=>$qtd]: (($qtd)?[':qtd'=>$qtd]:[]);
 
-    $result = executeQuery($sql, ($par)?$par:[]);
+    $result = executeQuery($sql, $par);
     $listProd = [];
     foreach ($result as $prod) {
         $prod['descontos'] = getDescontosProduto($prod['id_prod']);
@@ -21,6 +28,9 @@ function getAllProdutos($offset=null,$qtd=null){
 function getProduto($id=null){
     if($id){
         $sql = "SELECT * FROM produtos WHERE id_prod = :idprod";
+        if((int)$id<0)
+            $sql = "SELECT * FROM produtos WHERE id_prod = ".(getTotalRows()+1)."+:idprod";
+//        debug($sql);
         $prod = executeQuery($sql, [':idprod' => $id]);
         if($prod){
             //debug($prod);
@@ -37,7 +47,7 @@ function getDescontosProduto($id=null){
     if($id){
         $sql = "SELECT d.descricao as descontos
 FROM produtos as p INNER JOIN  prod_desc as pd ON p.id_prod = pd.id_prod
-                   INNER JOIN descontos d on pd.id_desc = d.id_desc
+                   INNER JOIN descontos as d on pd.id_desc = d.id_desc
                    WHERE p.id_prod=:idprod order by d.id_desc";
         $result= executeQuery($sql, [':idprod' => $id],2);
         $listDesc = [];
@@ -54,8 +64,8 @@ function getItensExtrasProduto($id=null){
     if($id){
         $sql = "SELECT e.descricao as itens_extras
 FROM produtos as p INNER JOIN  prod_ext as pe ON p.id_prod = pe.id_prod
-                   INNER JOIN extras e on pe.id_ext = e.id_ext
-WHERE p.id_prod=1 order by e.id_ext;";
+                   INNER JOIN extras as e on pe.id_ext = e.id_ext
+WHERE p.id_prod= :idprod order by e.id_ext;";
         $result = executeQuery($sql, [':idprod' => $id],2);
         $listItens = [];
         foreach ($result as $itens){
@@ -64,5 +74,21 @@ WHERE p.id_prod=1 order by e.id_ext;";
         return $listItens;
     }else{
         return [];
+    }
+}
+
+function insertProduto($produto,$returnLastId){
+    $sql = "INSERT INTO `produtos` (`nome`, `descricao`, `qtd_estoque`, `preco`, `importado`) 
+            VALUES (:nome, :descricao,:qtd_estoque,:preco,:importado)";
+    $params = [':nome'=>$produto['nome'],
+                ':descricao'=>$produto['descricao'],
+                ':qtd_estoque'=>$produto['qtd_estoque'],
+                ':preco'=>$produto['preco'],
+                ':importado'=>$produto['importado']];
+    $result = executeCommand($sql,$params,$returnLastId);
+    if($result){
+        return $result;
+    }else{
+        return false;
     }
 }

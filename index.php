@@ -4,7 +4,6 @@ header('Access-Control-Allow-Headers: *');
 header('Access-Control-Allow-Methods: *');
 header('Access-Control-Allow-Origin: *');
 
-
 $query = filter_input(INPUT_GET,'query');
 if(!$query) {
     $query = $_SERVER['REQUEST_URI'];
