@@ -97,9 +97,7 @@ function updateProduto($produto) {
     $sql = "UPDATE `produtos` SET nome=:nome,descricao=:descricao,
                       qtd_estoque=:qtd_estoque,preco=:preco,importado=:importado";
     $sql .= " WHERE id_prod =:id_prod";
-    $param = [':nome'=>$produto['nome'],':nome'=>$produto['nome'],
-        ':text'=>$noticia->getText(),
-        ':id'=>$noticia->getIdnoticia()];
+    $param = [':nome'=>$produto['nome']];
     if($this->ExecuteCommand($sql, $param)){
         return true;
     }else{

@@ -2,6 +2,17 @@
 require './model/produtoDAO.php';
 
 function upd_produto($data=null){
+//    debug($data);
+    if($data){
+        $produto['id_prod'] = updateProduto($data,true);
+        if($produto['id_prod'])
+            return ["confirm"=>true,"msg"=>'Produto adicionado',"produto"=>$produto];
+        else
+            return ["confirm"=>true,"msg"=>'falha ao executar tarefa no banco',"produto"=>$produto];
+    }else{
+        return ["confirm"=>false,"msg"=>'Erro ao receber parametros',"produto"=>$_POST];
+    }
+
     return ["confirm"=>true,"msg"=>"PROD ID: $data->id_prod EDITADO","produto"=>$data];
 }
 
@@ -16,7 +27,6 @@ function del_produto($data=null){
 }
 
 function get_produto($id = null,$qtd=null,$desc=false){
-
     if($id&&$qtd||(int)$id==0){
         $data  = getAllProdutos(intval($id),intval($qtd),$desc);
     }else {
@@ -36,7 +46,6 @@ function add_produto(){
             'descontos'=>filter_input(INPUT_POST,'desco'),
             'itens'=>filter_input(INPUT_POST,'itens')
         ];
-
         $produto['id_prod'] = insertProduto($produto,true);
         if($produto['id_prod'])
             return ["confirm"=>true,"msg"=>'Produto adicionado',"produto"=>$produto];
@@ -45,5 +54,4 @@ function add_produto(){
     }else{
         return ["confirm"=>false,"msg"=>'Erro ao receber parametros',"produto"=>$_POST];
     }
-
 }

@@ -1530,3 +1530,429 @@ string(57) "SELECT * FROM produtos ORDER BY id_prod DESC  LIMIT :qtd "
 Stack trace:
 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(18): debug('SELECT * FROM p...')
 #1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/control in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 03:02:46 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(0) {
+}
+#0  debug_vardump_backtrace(Array ()) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ()) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/model.php:69]
+#2  executeCommand(INSERT INTO `produtos` (`nome`, `descricao`, `qtd_estoque`, `preco`, `importado`) 
+            VALUES (:nome, :descricao,:qtd_estoque,:preco,:importado), Array ([:nome] => ,[:descricao] => ,[:qtd_estoque] => ,[:preco] => ,[:importado] => ), 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:88]
+#3  insertProduto(Array ([nome] => ,[descricao] => ,[qtd_estoque] => ,[preco] => ,[importado] => ,[descontos] => ,[itens] => ), 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:40]
+#4  add_produto() called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:42]
+#5  router(produto/clear) called at [/media/Dados/Público/www/2019/tsi/ds in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 03:04:33 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(0) {
+}
+#0  debug_vardump_backtrace(Array ()) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ()) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/model.php:69]
+#2  executeCommand(INSERT INTO `produtos` (`nome`, `descricao`, `qtd_estoque`, `preco`, `importado`) 
+            VALUES (:nome, :descricao,:qtd_estoque,:preco,:importado), Array ([:nome] => ,[:descricao] => ,[:qtd_estoque] => ,[:preco] => ,[:importado] => ), 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:88]
+#3  insertProduto(Array ([nome] => ,[descricao] => ,[qtd_estoque] => ,[preco] => ,[importado] => ,[descontos] => ,[itens] => ), 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:40]
+#4  add_produto() called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:42]
+#5  router(produto/clear) called at [/media/Dados/Público/www/2019/tsi/ds in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 03:04:43 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(0) {
+}
+#0  debug_vardump_backtrace(Array ()) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ()) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/model.php:69]
+#2  executeCommand(INSERT INTO `produtos` (`nome`, `descricao`, `qtd_estoque`, `preco`, `importado`) 
+            VALUES (:nome, :descricao,:qtd_estoque,:preco,:importado), Array ([:nome] => ,[:descricao] => ,[:qtd_estoque] => ,[:preco] => ,[:importado] => ), 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:88]
+#3  insertProduto(Array ([nome] => ,[descricao] => ,[qtd_estoque] => ,[preco] => ,[importado] => ,[descontos] => ,[itens] => ), 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:40]
+#4  add_produto() called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:42]
+#5  router(produto/clear) called at [/media/Dados/Público/www/2019/tsi/ds in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 15:11:13 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting end of file in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php on line 20
+[11-Sep-2019 15:11:18 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting end of file in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php on line 20
+[11-Sep-2019 15:11:43 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting end of file in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php on line 20
+[11-Sep-2019 15:12:14 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+object(stdClass)#1 (2) {
+  ["id_prod"]=>
+  int(10)
+  ["nome"]=>
+  string(10) "modificado"
+}
+#0  debug_vardump_backtrace(stdClass Object ([id_prod] => 10,[nome] => modificado)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(stdClass Object ([id_prod] => 10,[nome] => modificado)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:5]
+#2  upd_produto(stdClass Object ([id_prod] => 10,[nome] => modificado)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:41]
+#3  router(produto/clear) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(5): debug(Object(stdClass))
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(41): upd_produto(Object(stdClass))
+#2  in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 15:58:10 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(3) {
+  [0]=>
+  int(1)
+  [1]=>
+  int(2)
+  [2]=>
+  string(1) "1"
+}
+#0  debug_vardump_backtrace(Array ([0] => 1,[1] => 2,[2] => 1)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([0] => 1,[1] => 2,[2] => 1)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:10]
+#2  getAllProdutos(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:37]
+#4  router(produto/1/2/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(10): debug(Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(32): getAllProdutos(1, 2, '1')
+#2 /media/Dados in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 15:58:22 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(3) {
+  [0]=>
+  int(1)
+  [1]=>
+  int(2)
+  [2]=>
+  string(1) "1"
+}
+#0  debug_vardump_backtrace(Array ([0] => 1,[1] => 2,[2] => 1)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([0] => 1,[1] => 2,[2] => 1)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:10]
+#2  getAllProdutos(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:37]
+#4  router(produto/1/2/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(10): debug(Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(32): getAllProdutos(1, 2, '1')
+#2 /media/Dados in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:01:13 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(3) {
+  [0]=>
+  int(1)
+  [1]=>
+  int(2)
+  [2]=>
+  string(1) "1"
+}
+#0  debug_vardump_backtrace(Array ([0] => 1,[1] => 2,[2] => 1)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([0] => 1,[1] => 2,[2] => 1)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:10]
+#2  getAllProdutos(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:37]
+#4  router(produto/1/2/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(10): debug(Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(32): getAllProdutos(1, 2, '1')
+#2 /media/Dados in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:04:03 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(2) {
+  [":id"]=>
+  int(1)
+  [":qtd"]=>
+  int(2)
+}
+#0  debug_vardump_backtrace(Array ([:id] => 1,[:qtd] => 2)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([:id] => 1,[:qtd] => 2)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:18]
+#2  getAllProdutos(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:37]
+#4  router(produto/1/2/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(18): debug(Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(32): getAllProdutos(1, 2, '1')
+#2 /media/Dados/Público/www/2019/tsi/ in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:04:33 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(102) "SELECT * FROM produtos WHERE id_prod>= :id && id_prod < (:id+:qtd)  ORDER BY id_prod DESC  LIMIT :qtd "
+#0  debug_vardump_backtrace(SELECT * FROM produtos WHERE id_prod>= :id && id_prod < (:id+:qtd)  ORDER BY id_prod DESC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(SELECT * FROM produtos WHERE id_prod>= :id && id_prod < (:id+:qtd)  ORDER BY id_prod DESC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:18]
+#2  getAllProdutos(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:37]
+#4  router(produto/1/2/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/ww in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:05:46 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(102) "SELECT * FROM produtos WHERE id_prod>= :id && id_prod < (:id+:qtd)  ORDER BY id_prod DESC  LIMIT :qtd "
+#0  debug_vardump_backtrace(SELECT * FROM produtos WHERE id_prod>= :id && id_prod < (:id+:qtd)  ORDER BY id_prod DESC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(SELECT * FROM produtos WHERE id_prod>= :id && id_prod < (:id+:qtd)  ORDER BY id_prod DESC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:18]
+#2  getAllProdutos(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2, 1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:37]
+#4  router(produto/1/2/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/ww in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:06:06 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(75) "SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd "
+#0  debug_vardump_backtrace(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:18]
+#2  getAllProdutos(1, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#4  router(produto/1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(18): debug('SELECT * FROM p...')
+#1 /media/ in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:09:01 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(75) "SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd "
+#0  debug_vardump_backtrace(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:17]
+#2  getAllProdutos(1, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#4  router(produto/1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(17): debug('SELECT * FROM p...')
+#1 /media/ in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:09:03 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(75) "SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd "
+#0  debug_vardump_backtrace(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:17]
+#2  getAllProdutos(1, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#4  router(produto/1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(17): debug('SELECT * FROM p...')
+#1 /media/ in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:21:33 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(75) "SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd "
+#0  debug_vardump_backtrace(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:17]
+#2  getAllProdutos(1, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#4  router(produto/1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(17): debug('SELECT * FROM p...')
+#1 /media/ in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:21:38 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(75) "SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd "
+#0  debug_vardump_backtrace(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:17]
+#2  getAllProdutos(1, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#4  router(produto/1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(17): debug('SELECT * FROM p...')
+#1 /media/ in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:23:12 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(2) {
+  [0]=>
+  array(3) {
+    [0]=>
+    int(1)
+    [1]=>
+    int(2)
+    [2]=>
+    bool(false)
+  }
+  [1]=>
+  string(75) "SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd "
+}
+#0  debug_vardump_backtrace(Array ([0] => Array ([0] => 1,[1] => 2,[2] => ),[1] => SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([0] => Array ([0] => 1,[1] => 2,[2] => ),[1] => SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:17]
+#2  getAllProdutos(1, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#4  router(produto/1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiP in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:27:07 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(1) {
+  [0]=>
+  array(2) {
+    [0]=>
+    array(8) {
+      ["id_prod"]=>
+      string(1) "2"
+      ["nome"]=>
+      string(4) "eooj"
+      ["descricao"]=>
+      string(37) "Aperiam est qui cupiditate inventore."
+      ["qtd_estoque"]=>
+      string(1) "5"
+      ["preco"]=>
+      string(4) "0.85"
+      ["importado"]=>
+      string(1) "0"
+      ["descontos"]=>
+      array(3) {
+        [0]=>
+        string(23) "10% a vista no Débito."
+        [1]=>
+        string(22) "20% a vista no Débito"
+        [2]=>
+        string(30) "Até 3x sem juros no crédito."
+      }
+      ["itens_extras"]=>
+      array(3) {
+        [0]=>
+        string(9) "accusamus"
+        [1]=>
+        string(6) "veniam"
+        [2]=>
+        string(4) "sint"
+      }
+    }
+    [1]=>
+    array(8) {
+      ["id_prod"]=>
+      string(1) "3"
+      ["nome"]=>
+      string(4) "kgoy"
+      ["descricao"]=>
+      string(43) "Aut ut dolores est eos ut officia sit quod."
+      ["qtd_estoque"]=>
+      string in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 16:28:06 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(2) {
+  [0]=>
+  array(3) {
+    [0]=>
+    int(1)
+    [1]=>
+    int(2)
+    [2]=>
+    bool(false)
+  }
+  [1]=>
+  string(75) "SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd "
+}
+#0  debug_vardump_backtrace(Array ([0] => Array ([0] => 1,[1] => 2,[2] => ),[1] => SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([0] => Array ([0] => 1,[1] => 2,[2] => ),[1] => SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:17]
+#2  getAllProdutos(1, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#4  router(produto/1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiP in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 17:41:56 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(2) {
+  [0]=>
+  array(3) {
+    [0]=>
+    int(1)
+    [1]=>
+    int(2)
+    [2]=>
+    bool(false)
+  }
+  [1]=>
+  string(75) "SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd "
+}
+#0  debug_vardump_backtrace(Array ([0] => Array ([0] => 1,[1] => 2,[2] => ),[1] => SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([0] => Array ([0] => 1,[1] => 2,[2] => ),[1] => SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:17]
+#2  getAllProdutos(1, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#3  get_produto(1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#4  router(produto/1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiP in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 17:45:57 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(2) {
+  [":id"]=>
+  int(1)
+  [":qtd"]=>
+  int(2)
+}
+#0  debug_vardump_backtrace(Array ([:id] => 1,[:qtd] => 2)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([:id] => 1,[:qtd] => 2)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/model.php:29]
+#2  executeQuery(SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC  LIMIT :qtd , Array ([:id] => 1,[:qtd] => 2)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:18]
+#3  getAllProdutos(1, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:32]
+#4  get_produto(1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#5  router(produto/1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019 in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 17:51:25 America/Sao_Paulo] PHP Notice:  Undefined property: PDOStatement::$fetchAll in /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/model.php on line 42
+[11-Sep-2019 18:03:35 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(3) {
+  [0]=>
+  string(1) "1"
+  [1]=>
+  string(1) "3"
+  [2]=>
+  bool(false)
+}
+#0  debug_vardump_backtrace(Array ([0] => 1,[1] => 3,[2] => )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([0] => 1,[1] => 3,[2] => )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:31]
+#2  get_produto(1, 3) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#3  router(produto/1/3) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(31): debug(Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(36): get_produto('1', '3')
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/3')
+#3 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 18:03:50 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(3) {
+  [0]=>
+  string(1) "1"
+  [1]=>
+  string(1) "3"
+  [2]=>
+  bool(false)
+}
+#0  debug_vardump_backtrace(Array ([0] => 1,[1] => 3,[2] => )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([0] => 1,[1] => 3,[2] => )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:31]
+#2  get_produto(1, 3) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#3  router(produto/1/3) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(31): debug(Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(36): get_produto('1', '3')
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/3')
+#3 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[11-Sep-2019 18:03:51 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(3) {
+  [0]=>
+  string(1) "1"
+  [1]=>
+  string(1) "3"
+  [2]=>
+  bool(false)
+}
+#0  debug_vardump_backtrace(Array ([0] => 1,[1] => 3,[2] => )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:72]
+#1  debug(Array ([0] => 1,[1] => 3,[2] => )) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:31]
+#2  get_produto(1, 3) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:36]
+#3  router(produto/1/3) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:71
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(31): debug(Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(36): get_produto('1', '3')
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/3')
+#3 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 71
+[13-Sep-2019 02:36:39 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/model.php:28) in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 87

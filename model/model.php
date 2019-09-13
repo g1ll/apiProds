@@ -11,7 +11,7 @@ if ($drive === 'mysql') {
 
 function executeQuery($sql, $parameters,$type=1) {
     global $connectionString,$user,$password;
-    //echo $connectionString;
+
     $connection = null;
     try {
         $connection = new PDO($connectionString, $user, $password);
@@ -25,7 +25,8 @@ function executeQuery($sql, $parameters,$type=1) {
             }
         }
 
-
+        $preparedStatment->debugDumpParams();
+//        var_dump($preparedStatment);
         if ($preparedStatment->execute() == FALSE) {
             throw new PDOException($preparedStatment->errorCode());
         }
@@ -33,8 +34,9 @@ function executeQuery($sql, $parameters,$type=1) {
         $error = $preparedStatment->errorInfo();
 
         if ($error[2]) {
-            debug($preparedStatment->fetchAll());
-            debug($preparedStatment->debugDumpParams());
+            var_dump($preparedStatment);
+            var_dump($preparedStatment->fetchAll());
+            $preparedStatment->debugDumpParams();
             throw new PDOException($preparedStatment->errorCode());
         } else {
             return $preparedStatment->fetchAll(($type==1)?PDO::FETCH_ASSOC:PDO::FETCH_NUM);
@@ -60,7 +62,7 @@ function executeCommand($sql, $parameters, $returnId = false) {
         $preparedStatment = $connection->prepare($sql);
         if ($parameters != null) {
             foreach ($parameters as $key => $value) {
-                $preparedStatment->bindValue($key, $value);
+                $preparedStatment->bindParam($key, $value);
             }
         }
         $preparedStatment->execute();
