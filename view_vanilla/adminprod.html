@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title></title>
     <meta name="description" content="">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
@@ -15,6 +14,7 @@
 <body>
 <div class="col1">
     <h3>Cadastro de Produtos</h3>
+    <button class="close">x</button>
     <form name="cadastro">
         <br>Nome:<input type="text" name="nome" required>
         <br>Descrição:<br><textarea rows="5" cols="30" name="desc" draggable="false"></textarea>
@@ -46,6 +46,17 @@
 </div>
 <div class="col2">
     <h3>Produtos Cadastrados</h3>
+    <div class="configView">
+        Visualizar:
+        <select id="selectRows">
+            <option>5</option>
+            <option selected>10</option>
+            <option>20</option>
+            <option>30</option>
+            <option>50</option>
+            <option>100</option>
+        </select>
+    </div>
     <table>
         <thead>
         <tr>
@@ -63,7 +74,10 @@
         <tbody></tbody>
     </table>
 </div>
-<script src="js/adminprod.js" async defer></script>
+<script src="js/uiform.js"></script>
+<script src="js/uiselectrows.js"></script>
+<script src="js/apilib.js"></script>
+<script src="js/adminprod.js"></script>
 </body>
 
 </html>

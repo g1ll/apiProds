@@ -164,8 +164,10 @@ CREATE TABLE `prod_desc` (
   `id_desc` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id_prod`,`id_desc`),
   KEY `id_desc` (`id_desc`),
-  CONSTRAINT `prod_desc_ibfk_1` FOREIGN KEY (`id_prod`) REFERENCES `produtos` (`id_prod`),
-  CONSTRAINT `prod_desc_ibfk_2` FOREIGN KEY (`id_desc`) REFERENCES `descontos` (`id_desc`)
+  CONSTRAINT `prod_desc_ibfk_1` FOREIGN KEY (`id_prod`)
+      REFERENCES `produtos` (`id_prod`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `prod_desc_ibfk_2` FOREIGN KEY (`id_desc`)
+      REFERENCES `descontos` (`id_desc`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `prod_desc` (`id_prod`, `id_desc`) VALUES ('1', '1');

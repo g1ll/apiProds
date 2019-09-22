@@ -5,42 +5,46 @@ function getTotalRows(){
     return intval(executeQuery("SELECT count(*) as total FROM produtos",[])[0]['total']);
 }
 
+function getLastId(){
+    return intval(executeQuery("SELECT id_prod as lastid FROM produtos ORDER BY id_prod DESC LIMIT 1",[])[0]['lastid']);
+}
+
 function getAllProdutos($id=null,$qtd=null,$desc=false){
-    $totalRows = getTotalRows()+1;
+    $lastid = getLastId()+1;
     $sql = "SELECT * FROM produtos";
     if($id!=0)
-        $sql.=($id>0)?" WHERE id_prod".(($desc)?" >= :id && id_prod < (:id+:qtd) ":" >= :id")
-            :" WHERE id_prod".(($desc)?" >= $totalRows +:id &&
-             id_prod < ($totalRows +:id+:qtd) ":" >= $totalRows + :id");
+        $sql.=($id>0)?" WHERE id_prod".(($desc)?" >= :id && id_prod < (:id+:qtd) ":
+                " >= :id")
+            :" WHERE id_prod".(($desc)?" >= $lastid +:id &&
+             id_prod < ($lastid +:id+:qtd) ":" >= $lastid + :id");
     $sql.=" ORDER BY id_prod ".(($desc)?"DESC ":"");
     $sql.=($qtd)?" LIMIT :qtd ":'';
     $par = ($qtd&&$id)?[':id'=>$id,':qtd'=>$qtd]: (($qtd)?[':qtd'=>$qtd]:[]);
-    $result = executeQuery($sql, $par);
-    $listProd = [];
-    foreach ($result as $prod) {
-        $prod['descontos'] = getDescontosProduto($prod['id_prod']);
-        $prod['itens_extras'] = getItensExtrasProduto($prod['id_prod']);
-        $listProd[]=$prod;
-    }
-    return $listProd;
+    return selectProdutos($sql,$par);
 }
 
 function getProduto($id=null){
     if($id){
         $sql = "SELECT * FROM produtos WHERE id_prod = :idprod";
         if((int)$id<0)
-            $sql = "SELECT * FROM produtos WHERE id_prod = ".(getTotalRows()+1)."+:idprod";
-//        debug($sql);
-        $prod = executeQuery($sql, [':idprod' => $id]);
-        if($prod){
-            //debug($prod);
-            $prod[0]['descontos'] = getDescontosProduto($prod[0]['id_prod']);
-            $prod[0]['itens_extra'] = getItensExtrasProduto($prod[0]['id_prod']);
-            return $prod;
-        }
+            $sql = "SELECT * FROM produtos WHERE id_prod = ".(getLastId()+1)."+:idprod";
+//        debug($sql)
+        return selectProdutos($sql, [':idprod' => $id]);
     }else{
         return [];
     }
+}
+
+function searchInProdutos($name=null,$search=null){
+    //debug($search);
+        if($name&&($name==='nome'||$name==='descricao'||$name==='all')){
+            $fields=($name==='all')?"nome LIKE ? OR descricao":$name;
+            $sql = "SELECT * FROM produtos WHERE $fields LIKE ? ORDER BY id_prod DESC Limit 10";
+            $par = ($name==='all')?["%$search%","%$search%"]:["%$search%"];
+            return selectProdutos($sql,$par);
+        }else{
+            return [];
+        }
 }
 
 function getDescontosProduto($id=null){
@@ -78,7 +82,7 @@ WHERE p.id_prod= :idprod order by e.id_ext;";
 }
 
 function insertProduto($produto,$returnLastId){
-    $sql = "INSERT INTO `produtos` (`nome`, `descricao`, `qtd_estoque`, `preco`, `importado`) 
+    $sql = "INSERT INTO produtos (nome, descricao, qtd_estoque, preco, importado) 
             VALUES (:nome, :descricao,:qtd_estoque,:preco,:importado)";
     $params = [':nome'=>$produto['nome'],
                 ':descricao'=>$produto['descricao'],
@@ -94,13 +98,39 @@ function insertProduto($produto,$returnLastId){
 }
 
 function updateProduto($produto) {
-    $sql = "UPDATE `produtos` SET nome=:nome,descricao=:descricao,
+//    debug($produto);
+    $sql = "UPDATE produtos SET nome=:nome,descricao=:descricao,
                       qtd_estoque=:qtd_estoque,preco=:preco,importado=:importado";
     $sql .= " WHERE id_prod =:id_prod";
-    $param = [':nome'=>$produto['nome']];
-    if($this->ExecuteCommand($sql, $param)){
+    $param = [':nome'=>$produto->nome,
+        ':descricao'=>$produto->descricao,
+        ':qtd_estoque'=>$produto->qtd_estoque,
+        ':preco'=>$produto->preco,
+        ':id_prod'=>$produto->id_prod,
+        ':importado'=>$produto->importado];
+    if(executeCommand($sql, $param)){
+        return $produto;
+    }else{
+        return false;
+    }
+}
+
+function deleteProduto($id){
+    $sql = "DELETE FROM produtos WHERE id_prod = ?";
+    if(executeCommand($sql,[$id])){
         return true;
     }else{
         return false;
     }
+}
+
+function selectProdutos($sql,$par){
+    $result = executeQuery($sql, $par);
+    $listProd = [];
+    foreach ($result as $prod) {
+        $prod['descontos'] = getDescontosProduto($prod['id_prod']);
+        $prod['itens_extras'] = getItensExtrasProduto($prod['id_prod']);
+        $listProd[]=$prod;
+    }
+    return $listProd;
 }

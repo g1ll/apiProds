@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    font: 12px aria, verdana, sans-serif;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+}
+
+table,
+tr {
+    border: solid 1px grey;
+    text-align: center;
+    padding: 0;
+    border-collapse: collapse
+}
+
+table {
+    width: 95%;
+    margin: 0 auto
+}
+
+td {
+    border: dotted 1px #000;
+    margin: 0;
+    padding: 0;
+    min-width: 4%
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #000;
+    color: #fff;
+    border: solid 2px #fff
+}
+
+.row {
+    margin: 0 auto;
+    width: 95%;
+    overflow: auto;
+    padding: 2%
+}
+
+.col1 {
+    width: 90%;
+    margin-left: 2%;
+    background-color: #f2f2f2;
+    text-align: center;
+    border-radius: 10px;
+    padding: 1%;
+    box-sizing: border-box;
+    min-width: 300px;
+    margin-bottom: 2%;
+    position: relative;
+}
+form{
+    transition: display 2s;
+}
+
+.close{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: solid 0px white;
+    border-radius: 0px 10px 0px 10px;
+    background: transparent;
+}
+.close:focus,.close:focus-within,.close::-moz-focus-inner{
+    outline-style:none;!important;
+    box-shadow:none;!important;
+    border-color:transparent;!important;
+    border:0; !important;
+}
+.close:hover{
+    background: #d4d4d4;
+    font-weight: bold;
+}
+
+.col2 {
+    width: 90%;
+    margin: 0 auto;
+    border: solid 2px gray;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 360px;
+}
+.col2 table{
+    width: 100%;
+    word-break:break-word;
+}
+
+input[type=number],
+input[type=text] {
+    width: 95%
+}
+
+input[type=submit] {
+    width: 40%
+}
+
+textarea {
+    width: 95%;
+    resize: none
+}
+
+select {
+    width: 95%
+}
+
+button {
+    font: 24px sans-serif;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+ul {
+    text-align: left
+}
+
+h3 {
+    text-align: center
+}
+
+form ul {
+    list-style: none
+}
+
+.configView{
+    width: 40%;
+    position: relative;
+    margin-left: 60%;
+    text-align: right;
+}
+.configView select{
+    width: 50%;
+    display: inline;
+}
+
+#selectRows{display: inline}
+
+
+@media (max-width: 760px) {
+    .col2 table{
+        width: 100%;
+        word-break:normal;
+    }
+    .col2 table tr td:nth-child(odd), .col2 table tr th:nth-child(odd){
+        display: none;
+    }
+    .col2 table tr td:last-child, .col2 table tr th:last-child,
+    .col2 table tr td:first-child, .col2 table tr th:first-child{
+        display: block;
+        text-align: center;
+    }
+}
+@media (max-width: 420px) {
+    .col2 table tr td:first-child, .col2 table tr th:first-child{
+        display: none;
+    }
+    .col2 table li{
+        width: 100%;
+        word-break:break-all;
+        text-wrap: initial;
+    }
+}
+
+@media (min-width: 810px) {
+    .col1 {
+        width: 30%;
+    }
+    .col2{
+        width: 60%;
+        position: relative;
+        word-break: keep-all;
+    }
+    .col2 table tr th{
+        word-break: keep-all;
+    }
+    .close{display: none}
+    form {
+        display: block
+    }
+    .configView{
+        width: 30%;
+        position: relative;
+        margin-left: 70%;
+        text-align: right;
+    }
+    .configView select{
+        width: 30%;
+        display: inline;
+    }
+}

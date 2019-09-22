@@ -1,16 +1,17 @@
 <?php
 require '.config.php';
 
-function router($query=null){
+function router($query = null)
+{
 
     $method = strtolower($_SERVER['REQUEST_METHOD']);
-    $params = explode('/',$query);
-    //debug($params);
-    $controler = $params[0];
-    $file_controler= './controler/'.$controler.'.php';
+    $params = explode('/', $query);
 
-    if(file_exists($file_controler) && $controler!=='controler'
-        &&$controler!=='view'&&$controler!=='model') {
+    $controler = $params[0];
+    $file_controler = './controler/' . $controler . '.php';
+
+    if (file_exists($file_controler) && $controler !== 'controler'
+        && $controler !== 'view' && $controler !== 'model') {
 
         require_once $file_controler;
 
@@ -28,53 +29,60 @@ function router($query=null){
                 $action = "add_$controler";
                 break;
             default:
-                $action=null;
+                $action = null;
         }
 
-        if($action && $method==='get')
+        if ($action && $method === 'get')
             if (sizeof($params) == 2) sendjson($action($params[1]));
             elseif (sizeof($params) == 3) sendjson($action($params[1], $params[2]));
             elseif (sizeof($params) == 4) sendjson($action($params[1], $params[2], $params[3]));
             else sendjson($action());
-        elseif($action)
-            if($method==='put'||$method==='delete'){
+        elseif ($action)
+            if ($method === 'put' || $method === 'delete') {
                 sendjson($action(json_decode(file_get_contents("php://input"))));
-            } else{sendjson($action());}
+            } else {
+                sendjson($action());
+            }
         else debug("ERROR ACTION REQUEST");
 
-    }else{
+    } else {
+        debug($controler);
         header('Content-Type: text/html');
-        if (file_exists("view/$params[0].html")){
+        if (file_exists("view/$params[0].html")) {
             header("Location:view/$params[0].html");
             //include 'view/'.$params[0].'.php';
             //die;
-        }else{
+        } else {
             pageNotFound();
         }
     }
 }
 
-function pageNotFound(){
+function pageNotFound()
+{
     global $base_url;
     header("Location:http://$_SERVER[HTTP_HOST]$base_url/view/404.html");
     die;
 }
 
-function debugJSON($var){
+function debugJSON($var)
+{
     sendjson($var);
 //    throw  new Exception("Testado!!!!");
 }
 
-function debug($var){
+function debug($var)
+{
     echo '<pre>';
-    error_reporting( E_ALL );
-    throw  new Exception("Debugando:\n########\nVAR:\n".
-        debug_vardump_backtrace($var).'\n');
+    error_reporting(E_ALL);
+    throw  new Exception("Debugando:\n########\nVAR:\n" .
+        debug_vardump_backtrace($var) . '\n');
     echo '</pre>';
     die;
 }
 
-function debug_vardump_backtrace($var) {
+function debug_vardump_backtrace($var)
+{
     ob_start();
     var_dump($var);
     debug_print_backtrace();
@@ -83,7 +91,8 @@ function debug_vardump_backtrace($var) {
     return $trace;
 }
 
-function sendjson($var=NULL){
+function sendjson($var = NULL)
+{
     header('Content-Type: application/json');
     echo json_encode($var);
 }
