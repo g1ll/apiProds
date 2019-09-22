@@ -2091,3 +2091,675 @@ Stack trace:
 #1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
 #2 {main}
   thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 76
+[21-Sep-2019 21:49:40 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:79]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 78
+[21-Sep-2019 21:52:41 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(5) "model"
+#0  debug_vardump_backtrace(model) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:79]
+#1  debug(model) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:49]
+#2  router(model/css/style.css) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(49): debug('model')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('model/css/style...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 78
+[21-Sep-2019 21:53:40 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(5) "model"
+#0  debug_vardump_backtrace(model) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:79]
+#1  debug(model) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:49]
+#2  router(model/adminprod.html) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(49): debug('model')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('model/adminprod...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 78
+[21-Sep-2019 22:08:57 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:09:02 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/-10/10/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-10/10/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:10:13 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:10:17 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/-10/10/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-10/10/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:10:21 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/195/30/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/195/30/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:11:07 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:11:11 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/-10/10/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-10/10/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:11:17 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/196/20/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/196/20/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:12:03 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:12:07 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/-10/10/1}) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-10/10/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:12:16 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/197/20/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/197/20/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:13:07 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:13:10 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/-10/10/1}) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-10/10/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:13:16 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/198/20/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/198/20/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:13:21 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/198/30/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/198/30/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:13:39 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/198/10/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/198/10/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:13:44 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/198/50/1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/198/50/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:14:39 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:14:44 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/29/20/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/29/20/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[21-Sep-2019 22:14:50 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/-20/20/1}) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-20/20/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:20:22 America/Sao_Paulo] PHP Warning:  Use of undefined constant qtd - assumed 'qtd' (this will throw an Error in a future version of PHP) in /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php on line 15
+[22-Sep-2019 01:21:11 America/Sao_Paulo] PHP Warning:  Use of undefined constant qtd - assumed 'qtd' (this will throw an Error in a future version of PHP) in /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php on line 15
+[22-Sep-2019 01:21:31 America/Sao_Paulo] PHP Warning:  Use of undefined constant qtd - assumed 'qtd' (this will throw an Error in a future version of PHP) in /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php on line 15
+[22-Sep-2019 01:22:55 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(555) "
+42601 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 1, false)
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(37): get_produto('-1', '1')
+#4 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-1/1')
+#5 {main}"
+#0  debug_vardump_backtrace(
+42601 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 1, false)
+#3 /media/Dados/Público/ww in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:24:05 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(555) "
+42601 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(37): get_produto('-1', '2')
+#4 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-1/2')
+#5 {main}"
+#0  debug_vardump_backtrace(
+42601 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#3 /media/Dados/Público/ww in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:24:14 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(555) "
+42601 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(37): get_produto('-1', '2')
+#4 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-1/2')
+#5 {main}"
+#0  debug_vardump_backtrace(
+42601 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#3 /media/Dados/Público/ww in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:24:37 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+int(0)
+#0  debug_vardump_backtrace(0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:24]
+#2  getAllProdutos(0, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:35]
+#3  get_produto(-1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:37]
+#4  router(produto/-1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(24): debug(0)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(37): get_produto('-1', '2')
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiPro in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:24:43 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+int(1)
+#0  debug_vardump_backtrace(1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:24]
+#2  getAllProdutos(1, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:35]
+#3  get_produto(-2, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:37]
+#4  router(produto/-2/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(24): debug(1)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(1, 2, false)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(37): get_produto('-2', '2')
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiPro in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:28:32 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(555) "
+08P01 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 1, false)
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(37): get_produto('-1', '1')
+#4 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-1/1')
+#5 {main}"
+#0  debug_vardump_backtrace(
+08P01 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 1, false)
+#3 /media/Dados/Público/ww in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:28:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(555) "
+08P01 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(37): get_produto('-1', '2')
+#4 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-1/2')
+#5 {main}"
+#0  debug_vardump_backtrace(
+08P01 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#3 /media/Dados/Público/ww in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:28:56 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(555) "
+08P01 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(37): get_produto('-1', '2')
+#4 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-1/2')
+#5 {main}"
+#0  debug_vardump_backtrace(
+08P01 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(134): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(29): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#3 /media/Dados/Público/ww in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:29:20 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+array(2) {
+  [0]=>
+  int(0)
+  [1]=>
+  int(2)
+}
+#0  debug_vardump_backtrace(Array ([0] => 0,[1] => 2)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(Array ([0] => 0,[1] => 2)) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:24]
+#2  getAllProdutos(0, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:35]
+#3  get_produto(-1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:37]
+#4  router(produto/-1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(24): debug(Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controle in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:30:03 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+bool(true)
+#0  debug_vardump_backtrace(1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php:24]
+#2  getAllProdutos(0, 2, ) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php:35]
+#3  get_produto(-1, 2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:37]
+#4  router(produto/-1/2) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(24): debug(true)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, false)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(37): get_produto('-1', '2')
+#3 /media/Dados/Público/www/2019/tsi/dsw in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:31:15 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(560) "
+42601 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(135): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(30): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, '1')
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(38): get_produto('-1', '2', '1')
+#4 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-1/2/1')
+#5 {main}"
+#0  debug_vardump_backtrace(
+42601 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(135): executeQuery('SELECT * FROM (...', Array)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(30): selectProdutos('SELECT * FROM (...', Array)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(35): getAllProdutos(0, 2, '1')
+#3 /media/Dados/Público in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:33:47 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:33:52 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(427) "
+23505 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(98): executeCommand('INSERT INTO pro...', Array, true)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(58): insertProduto(Array, true)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(44): add_produto()
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/')
+#4 {main}"
+#0  debug_vardump_backtrace(
+23505 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(98): executeCommand('INSERT INTO pro...', Array, true)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(58): insertProduto(Array, true)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(44): add_produto()
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/')
+#4 {main}) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.p in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:34:11 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:34:17 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(427) "
+23505 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(98): executeCommand('INSERT INTO pro...', Array, true)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(58): insertProduto(Array, true)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(44): add_produto()
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/')
+#4 {main}"
+#0  debug_vardump_backtrace(
+23505 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(98): executeCommand('INSERT INTO pro...', Array, true)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(58): insertProduto(Array, true)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(44): add_produto()
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/')
+#4 {main}) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.p in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:42:02 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:42:11 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 01:42:24 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(427) "
+23505 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(98): executeCommand('INSERT INTO pro...', Array, true)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(58): insertProduto(Array, true)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(44): add_produto()
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/')
+#4 {main}"
+#0  debug_vardump_backtrace(
+23505 #0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/model/produtoDAO.php(98): executeCommand('INSERT INTO pro...', Array, true)
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/produto.php(58): insertProduto(Array, true)
+#2 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(44): add_produto()
+#3 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/')
+#4 {main}) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.p in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 02:00:12 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 02:00:22 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 02:03:44 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 02:03:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/-10/10/1}) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-10/10/...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 02:05:55 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 02:06:01 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/-1/10/1}) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-1/10/1...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 02:06:25 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/-1/10/0) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-1/10/0')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77
+[22-Sep-2019 02:06:40 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: Debugando:
+########
+VAR:
+string(20) "ERROR ACTION REQUEST"
+#0  debug_vardump_backtrace(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:78]
+#1  debug(ERROR ACTION REQUEST) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:46]
+#2  router(produto/-1/10/-1) called at [/media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php:17]
+\n in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php:77
+Stack trace:
+#0 /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php(46): debug('ERROR ACTION RE...')
+#1 /media/Dados/Público/www/2019/tsi/dsw/apiProds/index.php(17): router('produto/-1/10/-...')
+#2 {main}
+  thrown in /media/Dados/Público/www/2019/tsi/dsw/apiProds/controler/controler.php on line 77

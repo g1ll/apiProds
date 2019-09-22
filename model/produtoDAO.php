@@ -11,15 +11,21 @@ function getLastId(){
 
 function getAllProdutos($id=null,$qtd=null,$desc=false){
     $lastid = getLastId()+1;
-    $sql = "SELECT * FROM produtos";
-    if($id!=0)
-        $sql.=($id>0)?" WHERE id_prod".(($desc)?" >= :id && id_prod < (:id+:qtd) ":
-                " >= :id")
-            :" WHERE id_prod".(($desc)?" >= $lastid +:id &&
-             id_prod < ($lastid +:id+:qtd) ":" >= $lastid + :id");
-    $sql.=" ORDER BY id_prod ".(($desc)?"DESC ":"");
-    $sql.=($qtd)?" LIMIT :qtd ":'';
-    $par = ($qtd&&$id)?[':id'=>$id,':qtd'=>$qtd]: (($qtd)?[':qtd'=>$qtd]:[]);
+    if($id>0) {
+        if ($qtd)
+            $sql = "SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod ASC LIMIT :qtd";
+        else
+            $sql = "SELECT * FROM produtos WHERE id_prod>=:id ORDER BY id_prod";
+
+        if ($desc)
+            $sql = "SELECT * FROM ($sql) as produtos ORDER BY id_prod DESC";
+    }else{
+        $id = ($id+1)*-1;
+        $sql = "SELECT * FROM (SELECT * FROM produtos ORDER BY id_prod DESC LIMIT :qtd OFFSET :id) as produtos ORDER BY id_prod ASC";
+        if($desc)
+            $sql = "SELECT * FROM ($sql) as produtos ORDER BY id_prod DESC";
+    }
+    $par = (isset($qtd)&&isset($id))?[':id'=>$id,':qtd'=>$qtd]: (($qtd)?[':qtd'=>$qtd]:[':id'=>$id]);
     return selectProdutos($sql,$par);
 }
 

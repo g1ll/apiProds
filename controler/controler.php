@@ -46,7 +46,6 @@ function router($query = null)
         else debug("ERROR ACTION REQUEST");
 
     } else {
-        debug($controler);
         header('Content-Type: text/html');
         if (file_exists("view/$params[0].html")) {
             header("Location:view/$params[0].html");

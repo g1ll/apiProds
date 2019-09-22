@@ -5,47 +5,52 @@ const api = 'http://192.168.18.2/2019/tsi/dsw/apiProds';
 let listProds = []
 let prodIdedit = 0
 const cadastro = document.cadastro
-let ordem = 0
+let ordem = -1
 let qtd_prods = 10
-let idInit = 1;
+let idInit = -1
 
 console.log(window.innerWidth)
 
 if(window.innerWidth<810)
-    closeForm(cadastro,button);
+    closeForm(cadastro,button)
 
-cadastro.onsubmit = processaCadastro;
+cadastro.onsubmit = processaCadastro
 
 window.onload=()=>{getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`)}
 
 function mostrarDadosConsole(data) {
-    console.log({data});
-    console.table(data);
-    mostrarDados(data);
+    console.log({data})
+    console.table(data)
+    mostrarDados(data)
 }
 
-function mostrarDados(data){
+function  mostrarDados(data){
+    if(ordem) {
+        idInit = data[qtd_prods-1].id_prod
+    }else {
+        idInit = data[0].id_prod
+    }
     let rows ='';
     data.forEach(obj => {
-        rows += '<tr>';
+        rows += '<tr>'
         Object.entries(obj).map(([key, prod]) => {
             if(key==='importado')
-                prod=(Number(prod))?'Importado':'Nacional';
+                prod=(Number(prod))?'Importado':'Nacional'
                 if(Array.isArray(prod)){
                     rows += `<td>${(prod.length)?
                         `<ul><li>${prod.join('</li><li>')}</li><ul>`
                         :'---'}</td>`
                 }else{rows += '<td>'+prod+'</td>'}
-        });
+        })
         rows += `<td><button title='Remover este item.' 
                             onclick='removeProd(${obj.id_prod})'>
                         &#128465</button>
                         <button title='Editar este item.' 
                             onclick='editProd(${obj.id_prod})'>
                         &#10000;</button>
-                    </td>`;
-        rows += '</tr>';
-    });
+                    </td>`
+        rows += '</tr>'
+    })
     document.querySelector('tbody').innerHTML = rows
 }
 
@@ -73,6 +78,7 @@ function processaCadastro(e){
         itens: (listItens.length) ? listItens : 'Sem Itens'
     };
     if (!prodIdedit) { //Cadastrar
+        ordem = 1;
         addProdutoAPI(produto)
     } else { //Salvar
         produto.id_prod = prodIdedit;

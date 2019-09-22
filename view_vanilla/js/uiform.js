@@ -14,6 +14,13 @@ window.onresize=()=>{
 
 function closeForm(form,botao){
     console.log(form)
+    form.reset();
+    form.setAttribute('style', '');
+    document.querySelector('h3').setAttribute('style', '')
+    document.querySelector('h3').innerHTML = 'Cadastrar Produto';
+    // titulo.setAttribute('style', '')
+    // titulo.innerHTML = 'Cadastrar Produto';
+    form.submit.value = 'Cadastrar';
     console.log(form.style.display)
     if(form.style.display==='block'||!form.style.display) {
         form.style.display = 'none';

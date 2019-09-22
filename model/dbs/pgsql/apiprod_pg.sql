@@ -11,7 +11,7 @@ CREATE TABLE produtos (
     PRIMARY KEY (id_prod)
 );
 
-INSERT INTO produtos (id_prod, nome, descricao, qtd_estoque, preco, importado) VALUES ('1', 'fkor', 'Dolore et magni a quae et cupiditate ut.', 4, '2631100.97', 0);
+INSERT INTO produtos (id_prod,nome, descricao, qtd_estoque, preco, importado) VALUES ('1', 'fkor', 'Dolore et magni a quae et cupiditate ut.', 4, '2631100.97', 0);
 INSERT INTO produtos (id_prod, nome, descricao, qtd_estoque, preco, importado) VALUES ('2', 'eooj', 'Aperiam est qui cupiditate inventore.', 5, '0.85', 0);
 INSERT INTO produtos (id_prod, nome, descricao, qtd_estoque, preco, importado) VALUES ('3', 'kgoy', 'Aut ut dolores est eos ut officia sit quod.', 1, '54558458.10', 1);
 INSERT INTO produtos (id_prod, nome, descricao, qtd_estoque, preco, importado) VALUES ('4', 'sddq', 'Aliquam qui odio sunt repellendus quis dolorem.', 2, '37105234.89', 1);
@@ -180,8 +180,8 @@ INSERT INTO prod_desc (id_prod, id_desc) VALUES ('9', '4');
 DROP TABLE IF EXISTS prod_ext;
 
 CREATE TABLE prod_ext (
-        id_prod SERIAL NOT NULL,
-        id_ext SERIAL NOT NULL,
+        id_prod INTEGER NOT NULL,
+        id_ext INTEGER NOT NULL,
         PRIMARY KEY (id_prod,id_ext),
         FOREIGN KEY (id_prod) REFERENCES produtos (id_prod) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY (id_ext) REFERENCES extras (id_ext) ON DELETE CASCADE ON UPDATE CASCADE
@@ -210,3 +210,8 @@ INSERT INTO prod_ext (id_prod, id_ext) VALUES ('8', '4');
 INSERT INTO prod_ext (id_prod, id_ext) VALUES ('9', '1');
 INSERT INTO prod_ext (id_prod, id_ext) VALUES ('9', '2');
 INSERT INTO prod_ext (id_prod, id_ext) VALUES ('9', '4');
+
+
+SELECT setval('produtos_id_prod_seq', (SELECT MAX(id_prod) FROM produtos)+1);
+SELECT setval('descontos_id_desc_seq', (SELECT MAX(id_desc) FROM descontos)+1);
+SELECT setval('extras_id_ext_seq', (SELECT MAX(id_ext) FROM extras)+1);

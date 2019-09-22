@@ -17,7 +17,7 @@ function addProdutoAPI(produto) {
         .then(data =>{
             console.log(data);
             idInit = data.produto.id_prod;
-            getProdutosAPIasync(`${idInit-qtd_prods}/${qtd_prods}/${ordem}`)
+            getProdutosAPIasync(`${-1}/${qtd_prods}/${ordem}}`)
                 .catch(error =>console.error(`Erro:${error}`))});
 }
 

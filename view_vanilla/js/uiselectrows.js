@@ -10,7 +10,10 @@ seletor.onchange=function() {
         console.log(listProds);
         mostrarDados(templistProds);
     } else {
-        getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`)
+        if(ordem)
+            getProdutosAPIasync(`${-qtd_prods}/${qtd_prods}/${ordem}`)
+        else
+            getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`)
     }
 };
 
