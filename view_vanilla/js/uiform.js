@@ -25,7 +25,7 @@ function closeForm(form,botao){
     if(form.style.display==='block'||!form.style.display) {
         form.style.display = 'none';
         //botao.innerHTML='&#8964;'
-        botao.innerHTML='&#9776'
+        botao.innerHTML='&#9776;'
     }
     botao.onclick = ()=>{displayForm(form,botao)};
 }
@@ -33,7 +33,7 @@ function closeForm(form,botao){
 function displayForm(form,botao) {
     if(form.style.display==='none') {
         form.style.display = 'block';
-        botao.innerHTML=' &#xd7'
+        botao.innerHTML=' &#xd7;'
     }
     botao.onclick = ()=>{closeForm(form,botao)};
 }

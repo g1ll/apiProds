@@ -45,7 +45,7 @@ function searchInProdutos($name=null,$search=null){
     //debug($search);
         if($name&&($name==='nome'||$name==='descricao'||$name==='all')){
             $fields=($name==='all')?"nome LIKE ? OR descricao":$name;
-            $sql = "SELECT * FROM produtos WHERE $fields LIKE ? ORDER BY id_prod DESC Limit 10";
+            $sql = "SELECT * FROM produtos WHERE $fields LIKE ? ORDER BY id_prod";
             $par = ($name==='all')?["%$search%","%$search%"]:["%$search%"];
             return selectProdutos($sql,$par);
         }else{

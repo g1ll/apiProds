@@ -13,10 +13,11 @@
 
 <body>
 <div class="col1">
+    <button class="exit">&#x2B09;<span>Sair</span></button>
     <h3>Cadastro de Produtos</h3>
-    <button class="close">x</button>
+    <button class="close">&#xd7;</button>
     <form name="cadastro">
-        <br>Nome:<input type="text" name="nome" required>
+        <br>Nome:<input type="text" name="nome" required onchange="abilitaSubmit(this)">
         <br>Descrição:<br><textarea rows="5" cols="30" name="desc" draggable="false"></textarea>
         <br>Quantidade em Estoque:<input type="number" name="qtd">
         <br>Preço:<input type="number" name="preco" step="0.01">
@@ -41,7 +42,7 @@
             <li><input type="checkbox" name="itens" value="Entrega Rápida">Entrega Rápida.</li>
             <li><input type="checkbox" name="itens" value="Retirada em lojas">Retirada em lojas.</li>
         </ul>
-        <br><input type="submit" name='submit' value="Cadastrar">
+        <br><input type="submit" name='submit' disabled value="Cadastrar">
     </form>
 </div>
 <div class="col2">
@@ -60,20 +61,21 @@
     <table>
         <thead>
         <tr>
-            <th>ID</th>
+            <th><a href="#" onclick="order(this)">&#x25b2 ID</a></th>
             <th>Nome</th>
             <th>Descrição</th>
-            <th>Qtd Estoque</th>
+            <th>Qtd</th>
             <th>Preço</th>
             <th>Origem</th>
             <th>Descontos</th>
-            <th>Itens Adicionais</th>
+            <th>Itens</th>
             <th>Ações</th>
         </tr>
         </thead>
         <tbody></tbody>
     </table>
 </div>
+<div id="vanilla"><img src="http://vanilla-js.com/assets/button.png"/></div>
 <script src="js/uiform.js"></script>
 <script src="js/uiselectrows.js"></script>
 <script src="js/apilib.js"></script>

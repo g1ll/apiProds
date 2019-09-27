@@ -3,7 +3,6 @@ require '.config.php';
 
 function router($query = null)
 {
-
     $method = strtolower($_SERVER['REQUEST_METHOD']);
     $params = explode('/', $query);
 
@@ -15,21 +14,29 @@ function router($query = null)
 
         require_once $file_controler;
 
-        switch ($method) {
-            case 'put':
-                $action = "upd_$controler";
-                break;
-            case 'delete':
-                $action = "del_$controler";
-                break;
-            case 'get':
-                $action = "get_$controler";
-                break;
-            case 'post':
-                $action = "add_$controler";
-                break;
-            default:
-                $action = null;
+        if ($controler === 'login') {
+            $action = $controler;
+        } else {
+            if (!autenticar()) {
+                return sendjson(['confirm' => false, 'info' => "Erro, sem permissao para acessar API!"]);
+            } else {
+                switch ($method) {
+                    case 'put':
+                        $action = "upd_$controler";
+                        break;
+                    case 'delete':
+                        $action = "del_$controler";
+                        break;
+                    case 'get':
+                        $action = "get_$controler";
+                        break;
+                    case 'post':
+                        $action = "add_$controler";
+                        break;
+                    default:
+                        $action = null;
+                }
+            }
         }
 
         if ($action && $method === 'get')
@@ -94,4 +101,12 @@ function sendjson($var = NULL)
 {
     header('Content-Type: application/json');
     echo json_encode($var);
+}
+
+function autenticar(){
+    session_start();
+    if(isset($_SESSION['user']))
+        return true;
+    else
+        return false;
 }

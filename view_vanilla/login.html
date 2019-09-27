@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <style>
+        body{
+            font: 12px aria, verdana, sans-serif;;
+        }
+        div{
+            width: 90%;
+            background-color: #f2f2f2;
+            text-align: center;
+            border-radius: 10px;
+            padding: 1%;
+            box-sizing: border-box;
+            min-width: 300px;
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label{
+            font-family: Verdana,sans-serif;
+            padding: 5px;
+        }
+        input{margin: 5px;}
+       button {
+            font: 18px Verdana,sans-serif;
+            /*width: 60px;*/
+            border: solid 0px white;
+            border-radius: 10px;
+            background: transparent;
+        }
+
+        button:hover{
+            font-weight: bold;
+            background: #d4d4d4;
+            font-weight: bold;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+<div>
+<h2>Login 	&#x1f512;</h2>
+<form name="form_login">
+    <label>USER</label><input type="text" name="user">
+    <br><label>KEY</label><input type="password" name="key">
+    <br><button>&#x2907; Entrar </button>
+</form>
+</div>
+<script>
+    document.form_login.onsubmit = logar;
+    function logar(e) {
+        e.preventDefault();
+        const url = "/2019/tsi/dsw/apiProds/login";
+        const dataform = new FormData();
+        dataform.append('user',form_login.user.value)
+        dataform.append('key',form_login.key.value);
+
+        fetch(url, {
+            method: 'POST',
+            body: dataform,
+            //headers: { 'Content-Type': 'application/json' },
+            //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            mode: 'cors'
+        })
+            .then(response =>response.json())
+            .then(data =>{
+                console.log(data);
+                if(data.login){
+                   //alert(data.login)
+                    window.location='adminprod';
+                }else{
+                    alert("Erro de autenticação!!")
+                }
+            })
+            .catch(error =>console.error(`Erro:${error}`))
+    }
+</script>
+</body>
+</html>

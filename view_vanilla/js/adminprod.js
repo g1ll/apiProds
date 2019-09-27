@@ -1,13 +1,18 @@
-
-//const api = 'http://localhost:9090'
-const api = 'http://192.168.18.2/2019/tsi/dsw/apiProds';
-
 let listProds = []
 let prodIdedit = 0
 const cadastro = document.cadastro
-let ordem = -1
+let ordem = 0
 let qtd_prods = 10
-let idInit = -1
+let idInit = 1
+
+window.onload=()=>{
+    document.querySelector(".exit").onclick=exit;
+    verificaLogin(()=>{
+        document.querySelector('.col1').style.display='block';
+        document.querySelector('.col2').style.display='block';
+        getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`)
+    });
+}
 
 console.log(window.innerWidth)
 
@@ -16,8 +21,6 @@ if(window.innerWidth<810)
 
 cadastro.onsubmit = processaCadastro
 
-window.onload=()=>{getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`)}
-
 function mostrarDadosConsole(data) {
     console.log({data})
     console.table(data)
@@ -25,10 +28,12 @@ function mostrarDadosConsole(data) {
 }
 
 function  mostrarDados(data){
-    if(ordem) {
-        idInit = data[qtd_prods-1].id_prod
-    }else {
-        idInit = data[0].id_prod
+    if(idInit>0){
+        if(ordem) {
+            idInit = listProds[listProds.length-1].id_prod
+        }else {
+            idInit = listProds[0].id_prod
+        }
     }
     let rows ='';
     data.forEach(obj => {
@@ -47,7 +52,7 @@ function  mostrarDados(data){
                         &#128465</button>
                         <button title='Editar este item.' 
                             onclick='editProd(${obj.id_prod})'>
-                        &#10000;</button>
+                        &#x270e;</button>
                     </td>`
         rows += '</tr>'
     })
@@ -56,6 +61,7 @@ function  mostrarDados(data){
 
 function processaCadastro(e){
     e.preventDefault();
+    verificaLogin()
     const submit = document.querySelector('input[type="submit"]');
     const titulo = document.querySelectorAll('h3')[0];
 
@@ -79,8 +85,9 @@ function processaCadastro(e){
     };
     if (!prodIdedit) { //Cadastrar
         ordem = 1;
+        idInit = -1;
         addProdutoAPI(produto)
-    } else { //Salvar
+    }else { //Salvar
         produto.id_prod = prodIdedit;
         editProdutoAPI(produto);
         prodIdedit = 0;
@@ -92,17 +99,17 @@ function processaCadastro(e){
     this.reset()
     if(innerWidth<720)
         closeForm(cadastro,button);
-
 }
 
 function removeProd(idpro) {
-    if (confirm('Você excluirá este item definitivamente!')) {
-       delProdutoAPI(idpro)
-       getProdutosAPI('1/10')
-    }
+    verificaLogin(()=>{
+        if (confirm('Você excluirá este item definitivamente!')) {
+            delProdutoAPI(idpro)
+        }})
 }
 
 function editProd(idpro) {
+    verificaLogin()
     console.clear();
     const prod = listProds.find((prod) => Number(prod.id_prod) === idpro);
     console.log(prod);
@@ -124,4 +131,41 @@ function editProd(idpro) {
         cadastro.setAttribute('style', 'border:solid 2px red;border-radius:10px')
         displayForm(cadastro,button)
     }else{alert("erro")}
+}
+
+function order(el) {
+   verificaLogin(()=>{
+    if(ordem==0)el.innerHTML = '&#x25bc ID'
+    else el.innerHTML = '&#x25b2 ID';
+    ordem = (ordem==0)?1:0;
+    console.log(ordem)
+    mostrarDados(listProds.reverse())
+});}
+
+function abilitaSubmit(el) {
+    console.log(el.value);
+    const form = document.cadastro;
+    form.desc.value = "Digite a descricao";
+    const sub = form.submit;
+    console.log(sub);
+    if(el.value!==''){
+        sub.removeAttribute('disabled');
+    }else{sub.setAttribute('disabled','');}
+}
+
+async function verificaLogin(callback=null) {
+    const logged = await isLoggedAPI();
+    //alert(logged)
+    if (!logged) {
+        alert("Erro de autenticação!!")
+        //window.location = 'login.html'
+    }else{
+        if(callback)
+            callback();
+    }
+}
+
+async function exit() {
+    await logoutAPI();
+    window.location = 'login.html'
 }

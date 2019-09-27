@@ -5,10 +5,11 @@ function upd_produto($data=null){
 //    debug($data);
     if($data){
         $produto = updateProduto($data);
+//        $produto = null;
         if($produto)
             return ["confirm"=>true,"msg"=>'Produto atualizado!',"produto"=>$produto];
         else
-            return ["confirm"=>true,"msg"=>'falha ao executar tarefa no banco',"produto"=>$produto];
+            return ["confirm"=>false,"msg"=>'Falha ao executar tarefa no banco',"produto"=>$produto];
     }else{
         return ["confirm"=>false,"msg"=>'Erro ao receber parametros',"produto"=>$_POST];
     }
@@ -55,11 +56,19 @@ function add_produto(){
             'descontos'=>filter_input(INPUT_POST,'desco'),
             'itens'=>filter_input(INPUT_POST,'itens')
         ];
-        $produto['id_prod'] = insertProduto($produto,true);
-        if($produto['id_prod'])
-            return ["confirm"=>true,"msg"=>'Produto adicionado',"produto"=>$produto];
-        else
-            return ["confirm"=>true,"msg"=>'falha ao executar tarefa no banco',"produto"=>$produto];
+        $valida = true;
+//        foreach ($produto as $item)
+//            if(!$item)$valida = false;
+//
+        if($valida) {
+            $produto['id_prod'] = insertProduto($produto, true);
+            if ($produto['id_prod'])
+                return ["confirm" => true, "msg" => 'Produto adicionado', "produto" => $produto];
+            else
+                return ["confirm" => true, "msg" => 'Falha ao executar tarefa no banco', "produto" => $produto];
+        }else{
+            return ["confirm" => true, "msg" => 'Erro: Parametros insuficientes!', "produto" => $produto];
+        }
     }else{
         return ["confirm"=>false,"msg"=>'Erro ao receber parametros',"produto"=>$_POST];
     }
