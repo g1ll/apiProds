@@ -18,10 +18,9 @@ function connect(){
 }
 
 function executeQuery($query, $parameters,$type=1) {
+    $preparedStatment = null;
     try {
-        $preparedStatment = null;
         $preparedStatment = connect()->prepare($query);
-
         bindValuesParameters($preparedStatment,$parameters);
 
         if ($preparedStatment->execute() === FALSE) {
