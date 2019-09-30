@@ -62,8 +62,10 @@ function add_produto(){
 //        $produto['descontos'] = [2,4];
 //        debug($produto);
         if($valida) {
-            if (is_array($produto['descontos'])){
-                $produto['id_prod'] = insertProdutosDesc($produto);
+            if (is_array($produto['descontos'])
+                    && count($produto['descontos'])
+                    && $produto['descontos'][0]){
+                $produto['id_prod'] = insertProdutosDesc($produto,true);
             }else{
                 $produto['id_prod'] = insertProduto($produto, true);
             }

@@ -1,47 +1,44 @@
 <?php
 require '.config.php';
+global $user,$password,$drive,$host,$name;
 
-global $connectionString,$drive;
-
-if ($drive === 'mysql') {
-    $connectionString = "mysql:host=$host;dbname=$name;**charset=utf8**";
-} elseif ($drive === 'pgsql') {
-    $connectionString = "pgsql:host=$host;port=5433;dbname=$name;";
+function connect(){
+    global $user,$password,$drive,$host,$name;
+    try{
+        if ($drive === 'mysql') {
+            $connectionString = "mysql:host=$host;dbname=$name;**charset=utf8**";
+        } elseif ($drive === 'pgsql') {
+            $connectionString = "pgsql:host=$host;port=5433;dbname=$name;";
+        }
+        return new PDO($connectionString, $user, $password);
+    }catch (PDOException $exc) {
+            debug($exc);
+            return false;
+    }
 }
 
 function executeQuery($query, $parameters,$type=1) {
-    global $connectionString,$user,$password;
-
-    $connection = null;
     try {
         $preparedStatment = null;
-        $connection = new PDO($connectionString, $user, $password);
-        $connection->beginTransaction();
-        $preparedStatment = $connection->prepare($query);
+        $preparedStatment = connect()->prepare($query);
 
         bindValuesParameters($preparedStatment,$parameters);
 
-        if ($preparedStatment->execute() == FALSE) {
+        if ($preparedStatment->execute() === FALSE) {
             throw new PDOException($preparedStatment->errorCode());
         }
 
         $error = $preparedStatment->errorInfo();
 
-        if ($error[2]) {
-            $preparedStatment->debugDumpParams();
-
+        if ($error[2])
             throw new PDOException($preparedStatment->errorCode());
-        } else {
+        else
             return $preparedStatment->fetchAll(($type==1)?PDO::FETCH_ASSOC:PDO::FETCH_NUM);
-        }
+
     } catch (PDOException $exc) {
-        if ((isset($connection)) && ($connection->inTransaction())) {
-            $connection->rollBack();
-        }
         if($preparedStatment)
             debugStatment($preparedStatment,$exc);
-        else
-            debug($exc);
+        else debug($exc);
     } finally {
         if (isset($connection)) {
             unset($connection);
@@ -49,33 +46,25 @@ function executeQuery($query, $parameters,$type=1) {
     }
 }
 
-function executeCommand($command, $parameters, $returnId = false) {
-    global $connectionString,$user,$password;
-    $connection = null;
+function executeCommand($command, $parameters, $sequence = null) {
+    global $drive;
     try {
-        $connection = new PDO($connectionString, $user, $password);
-        $connection->beginTransaction();
+        $preparedStatment = null;
+        $connection  = connect();
         $preparedStatment = $connection->prepare($command);
         bindValuesParameters($preparedStatment,$parameters);
         $preparedStatment->execute();
-        $error = $preparedStatment->errorInfo();
-        if ($error[2]) {
-            throw new PDOException($preparedStatment->errorCode());
+        if (isset($sequence)) {
+            $ID = $connection->lastInsertId(($drive==='pgsql')?$sequence:null);
+            if(!$ID&&$drive==='pgsql')
+               return -1;
+            else return $ID;
+        }else{
+            return $preparedStatment->rowCount();
         }
-
-        if ($returnId) {
-            $ID = $connection->lastInsertId();
-            $connection->commit();
-            return $ID;
-        } else {
-            $connection->commit();
-        }
-        return $preparedStatment->rowCount();
     } catch (PDOException $exc) {
-        if ((isset($connection)) && ($connection->inTransaction())) {
-            $connection->rollBack();
-        }
         debugStatment($preparedStatment,$exc);
+        return false;
     } finally {
         if (isset($connection)) {
             unset($connection);
@@ -83,18 +72,17 @@ function executeCommand($command, $parameters, $returnId = false) {
     }
 }
 
-function executeMultiCommands(array $commands, array $multi_parameters, $returnId = false) {
-    global $connectionString,$user,$password;
+function executeMultiCommands(array $commands, array $multi_parameters, $sequence = null) {
+    global $drive;
     $connection = null;
+    //debug([$commands,$multi_parameters]);
     if(count($commands)!==count($multi_parameters)) {
         throw new Exception("Queries and Parameters does'nt match!");
-        return null;
     }elseif (isAssoc($commands)||isAssoc($multi_parameters)){
         throw new Exception("Queries and Parameters must be numeric arrays!");
-        return null;
     }
     try {
-        $connection = new PDO($connectionString, $user, $password);
+        $connection  = connect();
         $connection->beginTransaction();
         foreach ($commands as $index=>$sql) {
             if($multi_parameters[$index]) {
@@ -109,14 +97,19 @@ function executeMultiCommands(array $commands, array $multi_parameters, $returnI
                 throw new PDOException($preparedStatment->errorCode());
             }
         }
-        if ($returnId) {
-            $ID = $connection->lastInsertId();
-            $connection->commit();
-            return $ID;
+        if (isset($sequence)) {
+            $ID = $connection->lastInsertId(($drive==='pgsql')?$sequence:null);
+            if($ID){
+                $connection->commit();
+                return $ID;
+            }else{
+                $connection->commit();
+                return -1;
+            }
         } else {
             $connection->commit();
+            return $preparedStatment->rowCount();
         }
-        return $preparedStatment->rowCount();
     } catch (PDOException $exc) {
         if ((isset($connection)) && ($connection->inTransaction())) {
             $connection->rollBack();
@@ -152,5 +145,5 @@ function debugStatment(PDOStatement $stm,PDOException $error){
     var_dump($stm);
     var_dump($stm->fetchAll());
     $stm->debugDumpParams();
-    debug("\n".$error->getMessage().' '.$error->getTraceAsString());
+    debug("\n".$error->getMessage()."\n".$error->getTraceAsString());
 }

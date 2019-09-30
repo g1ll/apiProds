@@ -40,22 +40,22 @@ function getProduto($id=null){
 }
 
 function searchInProdutos($name=null,$search=null){
-        if($name&&($name==='nome'||$name==='descricao'||$name==='all')){
-            $fields=($name==='all')?"nome LIKE ? OR descricao":$name;
-            $query = "SELECT * FROM produtos WHERE $fields LIKE ? ORDER BY id_prod";
-            $param = ($name==='all')?["%$search%","%$search%"]:["%$search%"];
-            return selectProdutos($query,$param);
-        }else{
-            return false;
-        }
+    if($name&&($name==='nome'||$name==='descricao'||$name==='all')){
+        $fields=($name==='all')?"nome LIKE ? OR descricao":$name;
+        $query = "SELECT * FROM produtos WHERE $fields LIKE ? ORDER BY id_prod";
+        $param = ($name==='all')?["%$search%","%$search%"]:["%$search%"];
+        return selectProdutos($query,$param);
+    }else{
+        return false;
+    }
 }
 
 function getDescontosProduto($id=null){
     if($id){
         $query = "SELECT d.descricao as descontos
-FROM produtos as p INNER JOIN  prod_desc as pd ON p.id_prod = pd.id_prod
-                   INNER JOIN descontos as d on pd.id_desc = d.id_desc
-                   WHERE p.id_prod=:idprod order by d.id_desc";
+                    FROM produtos as p INNER JOIN  prod_desc as pd ON p.id_prod = pd.id_prod
+                    INNER JOIN descontos as d on pd.id_desc = d.id_desc
+                    WHERE p.id_prod=:idprod order by d.id_desc";
         $result= executeQuery($query, [':idprod' => $id],2);
         $listDesc = [];
         foreach ($result as $desc){
@@ -85,13 +85,20 @@ WHERE p.id_prod= :idprod order by e.id_ext;";
 }
 
 function insertProduto($produto,$returnLastId){
+    global $drive;
     $command = "INSERT INTO produtos (nome, descricao, qtd_estoque, preco, importado) 
-            VALUES (:nome, :descricao,:qtd_estoque,:preco,:importado)";
+                VALUES (?,?,?,?,?)";
 
 //    $param = array_filter($produto,
 //        function($k){return $k!=='descontos'&&$k!=='itens';},
 //        ARRAY_FILTER_USE_KEY);
-    $param = [$produto['nome'],$produto['descricao'],$produto['preco'],$produto['importado']];
+
+    $param = [  $produto['nome'],
+                $produto['descricao'],
+                $produto['qtd_estoque'],
+                $produto['preco'],
+                $produto['importado']];
+    if($returnLastId && $drive==='pgsql')$returnLastId = 'produtos_id_prod_seq';
     $result = executeCommand($command,$param,$returnLastId);
     if($result){
         return $result;
@@ -111,10 +118,11 @@ function insertProdutosDesc($produto, $returnid = false){
 //        function($k){return $k!=='descontos'&&$k!=='itens';},
 //        ARRAY_FILTER_USE_KEY), null ];
 
-    $params = [ $produto['nome'],
+    $params = [ [$produto['nome'],
                 $produto['descricao'],
+                $produto['qtd_estoque'],
                 $produto['preco'],
-                $produto['importado']];
+                $produto['importado']],[]];
 
     foreach ($produto['descontos'] as $desconto) {
         $sql = ($drive==='mysql')?
@@ -123,7 +131,8 @@ function insertProdutosDesc($produto, $returnid = false){
             array_push($commands,$sql);
             array_push($params,[$desconto]);
     }
-
+    if($returnid && $drive==='pgsql')
+        $returnid='produtos_id_prod_seq';
     $result = executeMultiCommands($commands,$params,$returnid);
     if($result){
         return $result;
