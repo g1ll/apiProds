@@ -143,7 +143,7 @@ function updateProduto($produto) {
                 $produto['preco'],
                 $produto['importado'],
                 $produto['id_prod']];
-//    debug($params);
+
     if(executeCommand($sql, $params)){
         return $produto;
     }else{
