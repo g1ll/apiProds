@@ -108,28 +108,31 @@ function removeProd(idpro) {
 }
 
 function editProd(idpro) {
-    verificaLogin()
-    console.clear();
-    const prod = listProds.find((prod) => Number(prod.id_prod) === idpro);
-    console.log(prod);
-    console.log(`${prod.id_prod}`);
-    if (prod) {
-        const cadastro = document.cadastro;
-        cadastro.nome.value = prod.nome;
-        cadastro.desc.value = prod.descricao;
-        cadastro.qtd.value = prod.qtd_estoque;
-        cadastro.preco.value = prod.preco;
-        if (prod.importado)
-            cadastro.ori[(prod.importado === "0") ? 0 : 1].checked = true;
-        const titulo = document.querySelectorAll('h3')[0];
-        titulo.innerHTML = 'Editar Produto ID: '+prod.id_prod;
-        titulo.setAttribute('style', 'color:red');
-        cadastro.submit.value = 'Salvar';
-        prodIdedit = prod.id_prod;
-        cadastro.nome.focus();
-        cadastro.setAttribute('style', 'border:solid 2px red;border-radius:10px')
-        displayForm(cadastro,button)
-    }else{alert("erro")}
+    verificaLogin(()=> {
+        console.clear()
+        const prod = listProds.find((prod) => Number(prod.id_prod) === idpro);
+        console.log(prod);
+        console.log(`${prod.id_prod}`);
+        if (prod) {
+            const cadastro = document.cadastro;
+            cadastro.nome.value = prod.nome;
+            cadastro.desc.value = prod.descricao;
+            cadastro.qtd.value = prod.qtd_estoque;
+            cadastro.preco.value = prod.preco;
+            if (prod.importado)
+                cadastro.ori[(prod.importado === "0") ? 0 : 1].checked = true;
+            const titulo = document.querySelectorAll('h3')[0];
+            titulo.innerHTML = 'Editar Produto ID: ' + prod.id_prod;
+            titulo.setAttribute('style', 'color:red');
+            cadastro.submit.value = 'Salvar';
+            prodIdedit = prod.id_prod;
+            cadastro.nome.focus();
+            cadastro.setAttribute('style', 'border:solid 2px red;border-radius:10px')
+            displayForm(cadastro, button)
+        } else {
+            alert("erro")
+        }
+    });
 }
 
 function order(el) {
@@ -159,8 +162,7 @@ async function verificaLogin(callback=null) {
         alert("Erro de autenticação!!")
         window.location = 'login.html'
     }else{
-        if(callback)
-            callback();
+        if(callback)callback();
     }
 }
 
