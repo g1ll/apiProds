@@ -88,10 +88,8 @@ function executeMultiCommands(array $commands, array $multi_parameters, $returnI
     $connection = null;
     if(count($commands)!==count($multi_parameters)) {
         throw new Exception("Queries and Parameters does'nt match!");
-        return null;
     }elseif (isAssoc($commands)||isAssoc($multi_parameters)){
         throw new Exception("Queries and Parameters must be numeric arrays!");
-        return null;
     }
     try {
         $connection = new PDO($connectionString, $user, $password);
