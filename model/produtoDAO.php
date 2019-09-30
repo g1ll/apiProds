@@ -133,8 +133,8 @@ function insertProdutosDesc($produto, $returnid = false){
 function updateProduto($produto) {
 //    debug($produto);
     $sql = "UPDATE produtos SET nome=:nome,descricao=:descricao,
-                      qtd_estoque=:qtd_estoque,preco=:preco,importado=:importado";
-    $sql .= " WHERE id_prod =id_prod";
+                      qtd_estoque=:qtd_estoque,preco=:preco,
+                    importado=:importado WHERE id_prod=:id_prod";
     if(executeCommand($sql, $produto)){
         return $produto;
     }else{
