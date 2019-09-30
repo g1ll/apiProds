@@ -103,8 +103,7 @@ function insertProduto($produto,$returnLastId){
 function insertProdutosDesc($produto, $returnid = false){
     global $drive;
     $commands = [
-        'INSERT INTO produtos (nome,descricao,qtd_estoque,preco,importado)
-            VALUES (:nome,:descricao,:qtd_estoque,:preco,:importado)',
+        'INSERT INTO produtos (nome,descricao,qtd_estoque,preco,importado) VALUES (?,?,?,?,?)',
         ($drive==='mysql')?'SET @last_prod_id = LAST_INSERT_ID()':
             'SELECT pg_sequence_last_value(\'produtos_id_prod_seq\') as lastidprod LIMIT 1'
     ];
@@ -112,7 +111,10 @@ function insertProdutosDesc($produto, $returnid = false){
 //        function($k){return $k!=='descontos'&&$k!=='itens';},
 //        ARRAY_FILTER_USE_KEY), null ];
 
-    $params = [$produto['nome'],$produto['descricao'],$produto['preco'],$produto['importado']];
+    $params = [ $produto['nome'],
+                $produto['descricao'],
+                $produto['preco'],
+                $produto['importado']];
 
     foreach ($produto['descontos'] as $desconto) {
         $sql = ($drive==='mysql')?
@@ -132,10 +134,17 @@ function insertProdutosDesc($produto, $returnid = false){
 
 function updateProduto($produto) {
 //    debug($produto);
-    $sql = "UPDATE produtos SET nome=:nome,descricao=:descricao,
-                      qtd_estoque=:qtd_estoque,preco=:preco,
-                    importado=:importado WHERE id_prod=:id_prod";
-    if(executeCommand($sql, $produto)){
+    $sql = "UPDATE produtos SET nome=?, descricao=?, qtd_estoque=?,
+                    preco=?, importado=? WHERE id_prod=?";
+
+    $params = [ $produto['nome'],
+                $produto['descricao'],
+                $produto['qtd_estoque'],
+                $produto['preco'],
+                $produto['importado'],
+                $produto['id_prod']];
+//    debug($params);
+    if(executeCommand($sql, $params)){
         return $produto;
     }else{
         return false;
