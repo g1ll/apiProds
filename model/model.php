@@ -29,7 +29,6 @@ function executeQuery($query, $parameters,$type=1) {
 
         if ($error[2]) {
             $preparedStatment->debugDumpParams();
-
             throw new PDOException($preparedStatment->errorCode());
         } else {
             return $preparedStatment->fetchAll(($type==1)?PDO::FETCH_ASSOC:PDO::FETCH_NUM);
