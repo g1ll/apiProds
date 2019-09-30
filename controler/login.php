@@ -3,9 +3,13 @@ session_start();
 function login($param=null){
     $logged = false;
     if($_POST) {
-        $_SESSION['user'] = 'g1ll';
+        $user = filter_input(INPUT_POST,'user',FILTER_SANITIZE_STRING);
+        $pass = filter_input(INPUT_POST,'key',FILTER_SANITIZE_STRING);
+        if($user==='g1ll'&&$pass==='tsidsw') {
+            $_SESSION['user'] = $user;
 //        debug($_SESSION);
-        $logged = true;
+            $logged = true;
+        }
     }else{
         if($_SERVER['REQUEST_METHOD']==='delete'||$param==='logout')
             logout();
