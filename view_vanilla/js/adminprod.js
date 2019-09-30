@@ -24,7 +24,6 @@ cadastro.onsubmit = processaCadastro
 function mostrarDadosConsole(data) {
     console.log({data})
     console.table(data)
-    mostrarDados(data)
 }
 
 function  mostrarDados(data){
@@ -158,7 +157,7 @@ async function verificaLogin(callback=null) {
     //alert(logged)
     if (!logged) {
         alert("Erro de autenticação!!")
-        //window.location = 'login.html'
+        window.location = 'login.html'
     }else{
         if(callback)
             callback();

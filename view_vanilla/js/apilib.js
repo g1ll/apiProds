@@ -1,26 +1,35 @@
 
-const api = 'http://172.16.249.5/2019/tsi/dsw/apiProds';
+const api = '/2019/tsi/dsw/apiProds';
 
 function addProdutoAPI(produto) {
+    console.log({produto})
     const dataform = new FormData();
 
     Object.entries(produto).map(([key, value]) => {
         console.log(`${key}:${value}`);
-        dataform.append(key, value)
+        if(Array.isArray(value))
+            value.forEach(data=>dataform.append(key+'[]', data));
+        else dataform.append(key, value)
     });
-
-    fetch(api+'/produto/', {
+    // dataform.append('produto',JSON.stringify(produto)),
+    fetch(api + '/produto/', {
         method: 'POST',
+        // body: dataform,
         body: dataform,
-        //headers: { 'Content-Type': 'application/json' },
-        //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        // headers: { 'Content-Type': 'application/json' },
+        // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        // headers: { 'Content-Type': 'multipart/form-data' },
         mode: 'cors'
     })
-        .then(response =>response.json())
-        .then(data =>{
-            console.log(data);
-            getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}}`)
-                .catch(error =>console.error(`Erro:${error}`))});
+        .then(response => response.json())
+        .then(data => {
+            if (data.confirm) {
+                getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`)
+            } else {
+                alert(data.msg);
+                console.error(data.msg);
+            }
+        }).catch(error => console.error(`Erro:${error}`));
 }
 
 function editProdutoAPI(produto) {
@@ -79,6 +88,7 @@ async function getProdutosAPIasync(req) {
             mode: 'cors'
         });
         const data = await (response=>{
+            console.log(response.headers)
             if(response.status===200 && response.ok ){
                 //mostrarDadosConsole(response.json()) //NÃO FUNCIONA
                 return response.json()
@@ -89,6 +99,7 @@ async function getProdutosAPIasync(req) {
         if(validaApi(data)) {
             listProds = data;
             mostrarDadosConsole(listProds);
+            mostrarDados(data)
         }else{
             console.log(data);
             throw new Error("Erro ao receber dados!"+response.statusText+" "+data.info);

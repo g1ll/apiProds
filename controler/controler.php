@@ -17,9 +17,7 @@ function router($query = null)
         if ($controler === 'login') {
             $action = $controler;
         } else {
-            if (!autenticar()) {
-                return sendjson(['confirm' => false, 'info' => "Erro, sem permissao para acessar API!"]);
-            } else {
+            if (autenticar()) {
                 switch ($method) {
                     case 'put':
                         $action = "upd_$controler";
@@ -36,6 +34,8 @@ function router($query = null)
                     default:
                         $action = null;
                 }
+            } else {
+                return sendjson(['confirm' => false, 'info' => "Erro, sem permissao para acessar API!"]);
             }
         }
 
@@ -109,4 +109,9 @@ function autenticar(){
         return true;
     else
         return false;
+}
+
+function isAssoc(array $arr){
+    if (array() === $arr) return false;
+    return array_keys($arr) !== range(0, count($arr) - 1);
 }
