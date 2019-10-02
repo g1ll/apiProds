@@ -29,7 +29,7 @@ function del_produto($data=null){
 
 function get_produto($id = null,$qtd=null,$desc=false){
     $data = [];
-    if($id&&$qtd||(int)$id==0){
+    if($id&&$qtd){
         if(intval($id)&&intval($qtd)) {
             $data = getAllProdutos(intval($id), intval($qtd), $desc);
         }else{
@@ -37,8 +37,10 @@ function get_produto($id = null,$qtd=null,$desc=false){
             $search = $qtd;
             $data=searchInProdutos($name,$search);
         }
-    }else {
+    }elseif($id){
         $data = getProduto($id);
+    }else{
+        $data = getAllProdutos();
     }
     return $data;
 }

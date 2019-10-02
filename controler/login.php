@@ -24,3 +24,10 @@ function logout(){
     session_destroy();
     return ["logout" => true];
 }
+
+function isLogged(){
+    if(isset($_SESSION['user']))
+        return true;
+    else
+        return false;
+}

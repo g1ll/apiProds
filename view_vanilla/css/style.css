@@ -57,9 +57,10 @@ th {
     margin-bottom: 2%;
     position: relative;
     display: none;
+    transition: display 2s;
 }
 form{
-    transition: display 2s;
+    transition: 2s;
 }
 
 .close{

@@ -60,7 +60,7 @@ function  mostrarDados(data){
 
 function processaCadastro(e){
     e.preventDefault();
-    verificaLogin()
+    verificaLogin();
     const submit = document.querySelector('input[type="submit"]');
     const titulo = document.querySelectorAll('h3')[0];
 

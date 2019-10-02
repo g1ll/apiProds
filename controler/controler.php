@@ -1,7 +1,8 @@
 <?php
-require '.config.php';
+require 'config.php';
+require './controler/login.php';
 
-function router($query = null)
+function route($query = null)
 {
     $method = strtolower($_SERVER['REQUEST_METHOD']);
     $params = explode('/', $query);
@@ -17,7 +18,7 @@ function router($query = null)
         if ($controler === 'login') {
             $action = $controler;
         } else {
-            if (autenticar()) {
+            if (isLogged()) {
                 switch ($method) {
                     case 'put':
                         $action = "upd_$controler";
@@ -64,6 +65,12 @@ function router($query = null)
     }
 }
 
+function sendjson($var = NULL)
+{
+    header('Content-Type: application/json');
+    echo json_encode($var);
+}
+
 function pageNotFound()
 {
     global $base_url;
@@ -95,20 +102,6 @@ function debug_vardump_backtrace($var)
     $trace = ob_get_contents();
     ob_end_clean();
     return $trace;
-}
-
-function sendjson($var = NULL)
-{
-    header('Content-Type: application/json');
-    echo json_encode($var);
-}
-
-function autenticar(){
-    session_start();
-    if(isset($_SESSION['user']))
-        return true;
-    else
-        return false;
 }
 
 function isAssoc(array $arr){
