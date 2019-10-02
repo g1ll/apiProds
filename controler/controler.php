@@ -4,6 +4,7 @@ require './controler/login.php';
 
 function route($query = null)
 {
+
     $method = strtolower($_SERVER['REQUEST_METHOD']);
     $params = explode('/', $query);
 
@@ -57,10 +58,10 @@ function route($query = null)
         header('Content-Type: text/html');
         if (file_exists("view/$params[0].html")) {
             header("Location:view/$params[0].html");
-            //include 'view/'.$params[0].'.php';
-            //die;
         } else {
-            pageNotFound();
+            if($query===null)
+                header("Location:view/index.html");
+            else pageNotFound();
         }
     }
 }
