@@ -4,6 +4,7 @@ import logo from './logo192.png';
 import './App.css';
 
 function App() {
+  const apiUrl='http://localhost/2019/tsi/dsw/apiProds';
   const [busca,setBusca] = useState('asdf')
   const [data,setData] = useState(false)
 
@@ -39,7 +40,7 @@ function App() {
 
   async function fetchData() {
     try {
-      const resp = await fetch(`http://localhost/2019/tsi/dsw/apiProds/produto/nome/${busca}`);
+      const resp = await fetch(`${apiUrl}/produto/nome/${busca}`);
       const dados =  await (response => response.json())(resp)
       return dados;
     }catch(e){
@@ -53,7 +54,7 @@ function App() {
     dataform.append('user','g1ll')
     dataform.append('key','g1ll@dsw');
     try{
-      const resp= await fetch(`http://localhost/2019/tsi/dsw/apiProds/login`,{
+      const resp= await fetch(`${apiUrl}/login`,{
         method: 'POST',
         body: dataform,
         //headers: { 'Content-Type': 'application/json' },
@@ -71,7 +72,7 @@ function App() {
   async function vloga() {
 
     try{
-      const resp= await fetch(`http://localhost/2019/tsi/dsw/apiProds/login`);
+      const resp= await fetch(`${apiUrl}/login`);
       const data  = await (response =>response.json())(resp)
       return data.login;
     }catch(error){

@@ -1,6 +1,7 @@
 {
   "name": "view_react",
-  "homepage": "http://localhost/2019/tsi/dsw/apiProds/view_react/build",
+  "homepage": "http://g1ll.epizy.com/apiProds/view_react/build",
+  "homepage_local": "http://localhost/2019/tsi/dsw/apiProds/view_react/build",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -134,7 +134,7 @@ function  mostrarDados(data){
                 }else{rows += '<td>'+prod+'</td>'}
         })
         rows += `<td><button title='Remover este item.' 
-                            onclick='removeProd(${obj.id_prod})'>
+                onclick='removeProd(${obj.id_prod})'>
                         &#128465</button>
                         <button title='Editar este item.' 
                             onclick='editProd(${obj.id_prod})'>

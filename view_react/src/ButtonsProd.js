@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/buttonsProd.css';
 
-const ButttonsProd= props=> {
+const ButttonsProd=props=> {
     const prod = props.produto;
     return(
         <>
