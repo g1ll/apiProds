@@ -26,9 +26,11 @@ function App() {
   return (
       <><div className='col1'>
         <h1>REACT</h1>
+      {/*  TODO: Component Form*/}
       </div>
         <div className='col2'>
-          <TableProds produtos={data}/>
+          <h3>Produtos Cadastrados</h3>
+          {(data)?(<TableProds produtos={data}/>):(<h4>Sem Produtos</h4>)}
         </div>
         <img src={logo} width={20}
              style={{position:'fixed',top:'0px',right:'0px'}}/>

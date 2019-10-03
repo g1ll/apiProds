@@ -18,7 +18,7 @@ function login($param=null){
             $logged = isset($_SESSION['user']);
         }
     }
-//    $logged = true;
+    $logged = true;
     return ["login" => $logged];
 }
 
@@ -28,7 +28,7 @@ function logout(){
 }
 
 function isLogged(){
-//    return true;
+    return true;
     if(isset($_SESSION['user']))
         return true;
     else
