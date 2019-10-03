@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/2019/tsi/dsw/apiProds/view_react/",
+  "start_url": "/apiProds/view_react/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

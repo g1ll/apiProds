@@ -1,9 +1,11 @@
 import React, {useState,useEffect} from 'react';
+import axios from 'axios';
 import TableProds from './TableProds';
 import logo from './logo192.png';
 import './App.css';
 
 function App() {
+  const apiUrl='http://localhost/2019/tsi/dsw/apiProds';
   const [busca,setBusca] = useState('asdf')
   const [data,setData] = useState(false)
 
@@ -39,8 +41,8 @@ function App() {
 
   async function fetchData() {
     try {
-      const resp = await fetch(`http://localhost/2019/tsi/dsw/apiProds/produto/nome/${busca}`);
-      const dados =  await (response => response.json())(resp)
+      const resp = await axios.get(`${apiUrl}/produto/nome/${busca}`);
+      const dados =  resp.data;
       return dados;
     }catch(e){
       console.log(e)
@@ -53,14 +55,11 @@ function App() {
     dataform.append('user','g1ll')
     dataform.append('key','g1ll@dsw');
     try{
-      const resp= await fetch(`http://localhost/2019/tsi/dsw/apiProds/login`,{
-        method: 'POST',
-        body: dataform,
-        //headers: { 'Content-Type': 'application/json' },
-        //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        mode: 'cors',
-      });
-      const data  = await (response =>response.json())(resp)
+      const resp= await axios.post(`${apiUrl}/login`,dataform,
+          { headers: {
+        'Content-Type': 'application/x-www-form-urlencoded','Accept': 'application/json'
+      }});
+      const data  = resp.data;
       return data.login;
     }catch(error){
       console.error(`Erro:${error}`);
@@ -71,8 +70,8 @@ function App() {
   async function vloga() {
 
     try{
-      const resp= await fetch(`http://localhost/2019/tsi/dsw/apiProds/login`);
-      const data  = await (response =>response.json())(resp)
+      const resp= await axios.get(`${apiUrl}/login`);
+      const data  = resp.data;
       return data.login;
     }catch(error){
       console.error(`Erro:${error}`);
