@@ -1,8 +1,8 @@
-import React, {useState,useEffect} from 'react';
+import React from 'react';
 
 function Prod(props) {
     const produto = props.produto;
-    console.log({produto})
+    // console.log({produto})
     return (
         <tr>
             <td>{produto.id_prod}</td>
@@ -16,7 +16,7 @@ function Prod(props) {
                 :('Sem desconto')}
             </td>
             <td>{produto.itens_extras.length>0 ?
-                (<ul>{produto.itens_extras.map(item=>(<li>item</li>))}</ul>)
+                (<ul>{produto.itens_extras.map((item,i)=>(<li key={`it_${i}`}>item</li>))}</ul>)
                 :'Sem Itens'}
             </td>
             <td>
