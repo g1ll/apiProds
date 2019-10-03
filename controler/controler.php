@@ -4,6 +4,7 @@ require './controler/login.php';
 
 function route($query = null)
 {
+    global $view;
 
     $method = strtolower($_SERVER['REQUEST_METHOD']);
     $params = explode('/', $query);
@@ -52,16 +53,16 @@ function route($query = null)
             } else {
                 sendjson($action());
             }
-        else debug("ERROR ACTION REQUEST");
+        else sendjson(['confirm' => false, 'info' =>'Erro de requisição','error'=>"ERROR ACTION REQUEST"]);
 
     } else {
         header('Content-Type: text/html');
-        if (file_exists("view/$params[0].html")) {
-            header("Location:view/$params[0].html");
+        if (file_exists("$view/$params[0].html")) {
+            header("Location:$view/$params[0].html");
         } else {
             if($query===null)
-                header("Location:view/index.html");
-            else pageNotFound();
+                header("Location:$view/index.html");
+            else pageNotFound($view);
         }
     }
 }
@@ -72,17 +73,22 @@ function sendjson($var = NULL)
     echo json_encode($var);
 }
 
-function pageNotFound()
+function pageNotFound($view)
 {
-    global $base_url;
-    header("Location:http://$_SERVER[HTTP_HOST]$base_url/view/404.html");
+    $dir = explode('/',__DIR__);
+    $uri = explode('/',$_SERVER['REQUEST_URI']);
+    array_shift($uri);
+    $dir_name = array_pop($dir);
+    $base_url = '';
+    foreach ($uri as $path)
+        if($path!==$dir_name) {
+            $base_url .= '/' . $path;
+        }else{
+            $base_url.='/'.$dir_name;
+            break;
+        }
+    header("Location:http://$_SERVER[HTTP_HOST]$base_url/$view/404.html");
     die;
-}
-
-function debugJSON($var)
-{
-    sendjson($var);
-//    throw  new Exception("Testado!!!!");
 }
 
 function debug($var)

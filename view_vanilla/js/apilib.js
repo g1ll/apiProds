@@ -1,7 +1,12 @@
+let apifolder = 'apiProds';
+let url = (window.location.pathname).split('/');
+url.splice(url.findIndex((v)=>v===apifolder)+1,url.length)
+url.pop();
+url = url.join('/');
 
-const api = '/2019/tsi/dsw/apiProds';
+const api = `${url}/${apifolder}`;
 
-function addProdutoAPI(produto) {
+async function addProdutoAPI(produto) {
     console.log({produto})
     const dataform = new FormData();
 
@@ -12,70 +17,74 @@ function addProdutoAPI(produto) {
         else dataform.append(key, value)
     });
     // dataform.append('produto',JSON.stringify(produto)),
-    fetch(api + '/produto/', {
-        method: 'POST',
-        // body: dataform,
-        body: dataform,
-        // headers: { 'Content-Type': 'application/json' },
-        // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        // headers: { 'Content-Type': 'multipart/form-data' },
-        mode: 'cors'
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.confirm) {
-                getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`)
-            } else {
-                alert(data.msg);
-                console.error(data.msg);
-            }
-        }).catch(error => console.error(`Erro:${error}`));
+    try{
+        const resp = await fetch(api + '/produto/', {
+            method: 'POST',
+            // body: dataform,
+            body: dataform,
+            // headers: { 'Content-Type': 'application/json' },
+            // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            // headers: { 'Content-Type': 'multipart/form-data' },
+            mode: 'cors'
+        });
+        const data = await (response => response.json())(resp);
+        if (data.confirm) {
+            return true;
+        } else {
+            alert(data.msg);
+            console.error(data.msg);
+            return false;
+        }
+    }catch(e){
+        console.error(`Erro:${e}`);
+    }
 }
 
-function editProdutoAPI(produto) {
-    fetch(api+'/produto/', {
-        method: 'PUT',
-        body: JSON.stringify(produto),
-        // body: dataform,
-        headers: { 'Content-Type': 'application/json' },
-        //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        mode: 'cors'
-    })
-        .then(response =>response.json())
-        .then(data=>{
-            console.info(data);
+async function editProdutoAPI(produto) {
+    try {
+        const resp = await fetch(api+'/produto/', {
+            method: 'PUT',
+            body: JSON.stringify(produto),
+            // body: dataform,
+            headers: { 'Content-Type': 'application/json' },
+            //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            mode: 'cors'
+        });
+        const data = await (response =>response.json())(resp);
+        console.info(data);
             if(data.confirm) {
-                getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`)
+                return true;
             }else {
                 alert(data.msg);
                 console.error(data.msg);
+                return false
             }
-        })
-        .catch(error=>console.error(`Erro:${error}`));
+    }catch(e){
+        console.error(`Erro:${e}`);
+    }
 }
 
-function delProdutoAPI(id){
-
-    fetch(api+'/produto/', {
-        method: 'DELETE',
-        body: JSON.stringify({id_prod:id}),
-        // body: dataform,
-        headers: { 'Content-Type': 'application/json' },
-        //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        mode: 'cors'
-    })
-        .then(response =>response.json())
-        .then(data => {
-            console.log(data)
-            if(data.confirm){
-                console.info(data.msg)
-            }else{
-                console.log(data.msg)
-                alert("INFELIZMENTE NÃO FOI POSSÍVEL DELETAR O PRODUTO")
-            }
-            getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`)
-        })
-        .catch(error => console.error(`Erro:${error}`))
+async function delProdutoAPI(id){
+    try{
+        const resp = await fetch(api+'/produto/', {
+            method: 'DELETE',
+            body: JSON.stringify({id_prod:id}),
+            // body: dataform,
+            headers: { 'Content-Type': 'application/json' },
+            //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            mode: 'cors'
+        });
+        const data = await (response =>response.json())(resp);
+        if(data.confirm){
+            console.log(data.msg)
+            return true
+        }else{
+            console.log(data.msg)
+            return false;
+        }
+    }catch(e){
+        console.error(`Erro:${e}`);
+    }
 }
 
 async function getProdutosAPIasync(req) {
@@ -97,15 +106,16 @@ async function getProdutosAPIasync(req) {
             }
         })(resp);
         if(validaApi(data)) {
-            listProds = data;
-            mostrarDadosConsole(listProds);
-            mostrarDados(data)
+            // listProds = data;
+            // mostrarDadosConsole(listProds);
+            // mostrarDados(data)
+            return data;
         }else{
             console.log(data);
-            throw new Error("Erro ao receber dados!"+response.statusText+" "+data.info);
+            throw new Error("Erro ao receber dados!"+data.info);
         }
     }catch (e) {
-        alert(e);
+        //alert(e);
         console.error(`${e}`);
         return false
     }
@@ -157,4 +167,24 @@ async function logoutAPI() {
         })(data);
     }catch{(error =>console.error(`Erro:${error}`))}
 
+}
+
+async function loginAPI(user,key) {
+    const dataform = new FormData();
+    dataform.append('user',user)
+    dataform.append('key',key);
+    try{
+        const resp= await fetch(api+'/login', {
+            method: 'POST',
+            body: dataform,
+            //headers: { 'Content-Type': 'application/json' },
+            //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            mode: 'cors'
+        });
+        const data  = await (response =>response.json())(resp)
+        return data.login;
+    }catch(error){
+        console.error(`Erro:${error}`);
+        return false;
+    }
 }

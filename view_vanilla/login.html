@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <title>Login</title>
     <style>
         body{
@@ -50,34 +51,7 @@
     <br><button>&#x2907; Entrar </button>
 </form>
 </div>
-<script>
-    document.form_login.onsubmit = logar;
-    function logar(e) {
-        e.preventDefault();
-        const url = "/2019/tsi/dsw/apiProds/login";
-        const dataform = new FormData();
-        dataform.append('user',form_login.user.value)
-        dataform.append('key',form_login.key.value);
-
-        fetch(url, {
-            method: 'POST',
-            body: dataform,
-            //headers: { 'Content-Type': 'application/json' },
-            //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            mode: 'cors'
-        })
-            .then(response =>response.json())
-            .then(data =>{
-                console.log(data);
-                if(data.login){
-                   //alert(data.login)
-                    window.location='index.html';
-                }else{
-                    alert("Erro de autenticação!!")
-                }
-            })
-            .catch(error =>console.error(`Erro:${error}`))
-    }
-</script>
+<script type="text/javascript" src="js/apilib.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 </body>
 </html>

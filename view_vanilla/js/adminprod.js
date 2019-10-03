@@ -2,24 +2,111 @@ let listProds = []
 let prodIdedit = 0
 const cadastro = document.cadastro
 let ordem = 0
-let qtd_prods = 10
+let qtd_prods = 5
 let idInit = 1
 
-window.onload=()=>{
-    document.querySelector(".exit").onclick=exit;
-    verificaLogin(()=>{
-        document.querySelector('.col1').style.display='block';
-        document.querySelector('.col2').style.display='block';
-        getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`)
+document.querySelector(".exit").onclick=exit;
+cadastro.onsubmit = processaCadastro
+
+verificaLogin(async function(){
+    document.body.className = "visible";
+    listProds = await getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`);
+    mostrarDadosConsole(listProds);
+    mostrarDados(listProds)
+});
+
+async function processaCadastro(e){
+    e.preventDefault();
+    await verificaLogin();
+    const submit = document.querySelector('input[type="submit"]');
+    const titulo = document.querySelectorAll('h3')[0];
+
+    const selectdesco = Array.from(
+        this.desco.selectedOptions
+    ).map(option => option.value);
+
+    const listItens = [];
+    Array.from(this.itens).forEach(item => {
+        if (item.checked) listItens.push(item.value)
     });
+
+    const produto = {
+        nome: this.nome.value,
+        descricao: this.desc.value,
+        qtd_estoque: this.qtd.value,
+        preco: this.preco.value,
+        importado: (this.ori.value==='Importado')?1:0,
+        desco: (selectdesco.length) ? selectdesco : 'Sem Descontos',
+        itens: (listItens.length) ? listItens : 'Sem Itens'
+    };
+    if (!prodIdedit) { //Cadastrar
+        ordem = 1;
+        idInit = -1;
+        if(await addProdutoAPI(produto)){
+            listProds = await getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`);
+        }else{
+            console.error("Erro ao cadastrar Produto");
+        }
+    }else { //Salvar
+        produto.id_prod = prodIdedit;
+        if(await editProdutoAPI(produto)){
+            listProds = await getProdutosAPIasync(`${produto.id_prod}/${qtd_prods}/${ordem}`);
+        }else{
+            console.error("Erro ao editar Produto");
+        }
+        prodIdedit = 0;
+        this.setAttribute('style', '');
+        titulo.setAttribute('style', '')
+    }
+    titulo.innerHTML = 'Cadastrar Produto';
+    submit.value = 'Cadastrar';
+    mostrarDadosConsole(listProds);
+    mostrarDados(listProds)
+    this.reset()
+    if(innerWidth<720)
+        closeForm(cadastro,button);
 }
 
-console.log(window.innerWidth)
+function removeProd(idpro) {
+    verificaLogin(async function(){
+        if (confirm('Você excluirá este item definitivamente!')) {
+            if(await delProdutoAPI(idpro)){
+                listProds = await getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`);
+                mostrarDadosConsole(listProds);
+                mostrarDados(listProds)
+            }else{
+                alert("INFELIZMENTE NÃO FOI POSSÍVEL DELETAR O PRODUTO")
+            }
+        }})
+}
 
-if(window.innerWidth<810)
-    closeForm(cadastro,button)
-
-cadastro.onsubmit = processaCadastro
+function editProd(idpro) {
+    verificaLogin(()=> {
+        console.clear()
+        const prod = listProds.find((prod) => Number(prod.id_prod) === idpro);
+        console.log(prod);
+        console.log(`${prod.id_prod}`);
+        if (prod) {
+            cadastro.nome.value = prod.nome;
+            cadastro.desc.value = prod.descricao;
+            cadastro.qtd.value = prod.qtd_estoque;
+            cadastro.preco.value = prod.preco;
+            if (prod.importado)
+                cadastro.ori[(prod.importado === "0") ? 0 : 1].checked = true;
+            const titulo = document.querySelectorAll('h3')[0];
+            titulo.innerHTML = 'Editar Produto ID: ' + prod.id_prod;
+            titulo.setAttribute('style', 'color:red');
+            cadastro.submit.value = 'Salvar';
+            prodIdedit = prod.id_prod;
+            cadastro.nome.focus();
+            window.scrollTo(0,0);
+            cadastro.setAttribute('style', 'border:solid 2px red;border-radius:10px')
+            displayForm(cadastro, button)
+        } else {
+            alert("erro")
+        }
+    });
+}
 
 function mostrarDadosConsole(data) {
     console.log({data})
@@ -58,83 +145,6 @@ function  mostrarDados(data){
     document.querySelector('tbody').innerHTML = rows
 }
 
-function processaCadastro(e){
-    e.preventDefault();
-    verificaLogin();
-    const submit = document.querySelector('input[type="submit"]');
-    const titulo = document.querySelectorAll('h3')[0];
-
-    const selectdesco = Array.from(
-        this.desco.selectedOptions
-    ).map(option => option.value);
-
-    const listItens = [];
-    Array.from(this.itens).forEach(item => {
-        if (item.checked) listItens.push(item.value)
-    });
-
-    const produto = {
-        nome: this.nome.value,
-        descricao: this.desc.value,
-        qtd_estoque: this.qtd.value,
-        preco: this.preco.value,
-        importado: (this.ori.value==='Importado')?1:0,
-        desco: (selectdesco.length) ? selectdesco : 'Sem Descontos',
-        itens: (listItens.length) ? listItens : 'Sem Itens'
-    };
-    if (!prodIdedit) { //Cadastrar
-        ordem = 1;
-        idInit = -1;
-        addProdutoAPI(produto)
-    }else { //Salvar
-        produto.id_prod = prodIdedit;
-        editProdutoAPI(produto);
-        prodIdedit = 0;
-        this.setAttribute('style', '');
-        titulo.setAttribute('style', '')
-    }
-    titulo.innerHTML = 'Cadastrar Produto';
-    submit.value = 'Cadastrar';
-    this.reset()
-    if(innerWidth<720)
-        closeForm(cadastro,button);
-}
-
-function removeProd(idpro) {
-    verificaLogin(()=>{
-        if (confirm('Você excluirá este item definitivamente!')) {
-            delProdutoAPI(idpro)
-        }})
-}
-
-function editProd(idpro) {
-    verificaLogin(()=> {
-        console.clear()
-        const prod = listProds.find((prod) => Number(prod.id_prod) === idpro);
-        console.log(prod);
-        console.log(`${prod.id_prod}`);
-        if (prod) {
-            const cadastro = document.cadastro;
-            cadastro.nome.value = prod.nome;
-            cadastro.desc.value = prod.descricao;
-            cadastro.qtd.value = prod.qtd_estoque;
-            cadastro.preco.value = prod.preco;
-            if (prod.importado)
-                cadastro.ori[(prod.importado === "0") ? 0 : 1].checked = true;
-            const titulo = document.querySelectorAll('h3')[0];
-            titulo.innerHTML = 'Editar Produto ID: ' + prod.id_prod;
-            titulo.setAttribute('style', 'color:red');
-            cadastro.submit.value = 'Salvar';
-            prodIdedit = prod.id_prod;
-            cadastro.nome.focus();
-            cadastro.setAttribute('style', 'border:solid 2px red;border-radius:10px')
-            displayForm(cadastro, button)
-        } else {
-            alert("erro")
-        }
-    });
-}
-
 function order(el) {
    verificaLogin(()=>{
     if(ordem==0)el.innerHTML = '&#x25bc ID'
@@ -157,10 +167,9 @@ function abilitaSubmit(el) {
 
 async function verificaLogin(callback=null) {
     const logged = await isLoggedAPI();
-    //alert(logged)
     if (!logged) {
         alert("Erro de autenticação!!")
-        window.location = 'login.html'
+        window.location = './login.html'
     }else{
         if(callback)callback();
     }
@@ -168,5 +177,5 @@ async function verificaLogin(callback=null) {
 
 async function exit() {
     await logoutAPI();
-    window.location = 'login.html'
+    window.location = './login.html'
 }
