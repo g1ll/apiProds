@@ -1,8 +1,8 @@
 import React from 'react';
+import ButttonsProd from "./ButtonsProd";
 
 function Prod(props) {
     const produto = props.produto;
-    // console.log({produto})
     return (
         <tr>
             <td>{produto.id_prod}</td>
@@ -20,9 +20,9 @@ function Prod(props) {
                 :'Sem Itens'}
             </td>
             <td>
-            {/*    TODO: Componentes para os botões*/}
+                <ButttonsProd produto={produto}/>
             </td>
         </tr>);
 }
 
-export default Prod;
+export default Prod
