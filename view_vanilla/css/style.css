@@ -248,18 +248,22 @@ form ul {
 .show{display: block}
 .hide{display: none}
 
-
-table button{
+table tr td button{
     background: transparent;
     border:0px;
-    font-size: inherit;
+    font-size: 2em;
     font-family: inherit;
     color: inherit;
     font-weight: bold;
 }
 
-table button:hover{
+table tr td button:hover{
     color: inherit;
-    background: transparent;
+    background: #f2f2f2;
     border: 0px;
+    border-radius: 10px;
+}
+
+tr:nth-child(even) td button:hover{
+    background: white;
 }
