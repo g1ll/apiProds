@@ -5,10 +5,10 @@ close_button.onclick = function(){
 }
 
 window.onresize=()=>{
-    if(document.querySelector('form').style.display==='none')
     if(window.innerWidth>810){
         displayForm(document.querySelector('form'),close_button)
     }else{
+        if(document.querySelector('form').className!=='show')
         closeForm(document.querySelector('form'),close_button)
     }
 }
