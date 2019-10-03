@@ -247,3 +247,19 @@ form ul {
 
 .show{display: block}
 .hide{display: none}
+
+
+table button{
+    background: transparent;
+    border:0px;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    font-weight: bold;
+}
+
+table button:hover{
+    color: inherit;
+    background: transparent;
+    border: 0px;
+}
