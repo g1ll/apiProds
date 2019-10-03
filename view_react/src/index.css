@@ -1,13 +1,245 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font: 12px aria, verdana, sans-serif;
+}
+.visible{
+  display:flex;
+  visibility: visible;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+table,
+tr {
+  border: solid 1px grey;
+  text-align: center;
+  padding: 0;
+  border-collapse: collapse
 }
+
+table {
+  width: 95%;
+  margin: 0 auto
+}
+
+td {
+  border: dotted 1px #000;
+  margin: 0;
+  padding: 0;
+  min-width: 4%
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+th {
+  background-color: #000;
+  color: #fff;
+  border: solid 2px #fff
+}
+
+.row {
+  margin: 0 auto;
+  width: 95%;
+  overflow: auto;
+  padding: 2%
+}
+
+.col1 {
+  width: 90%;
+  margin-left: 2%;
+  background-color: #f2f2f2;
+  text-align: center;
+  border-radius: 10px;
+  padding: 1%;
+  box-sizing: border-box;
+  min-width: 300px;
+  margin-bottom: 2%;
+  position: relative;
+  transition: display 2s;
+}
+form{
+  transition: 2s;
+}
+
+.close{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border: solid 0px white;
+  border-radius: 0px 10px 0px 10px;
+  background: transparent;
+}
+
+.exit{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 60px;
+  border: solid 0px white;
+  border-radius: 10px 0px 10px 0px;
+  background: transparent;
+}
+.exit span{
+  font-size: 14px;
+}
+
+.close:focus,.close:focus-within,.close::-moz-focus-inner,
+.exit:focus,.exit:focus-within,.exit::-moz-focus-inner{
+  outline-style:none;
+  box-shadow:none;
+  border-color: transparent;
+  border:0;
+}
+
+.close:hover,.exit:hover{
+  background: #d4d4d4;
+  font-weight: bold;
+  cursor:pointer;
+}
+
+.col2 {
+  width: 90%;
+  margin: 0 auto;
+  border: solid 2px gray;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px;
+  min-width: 320px;
+}
+.col2 table{
+  width: 100%;
+  word-break:break-word;
+}
+
+input[type=number],
+input[type=text] {
+  width: 95%
+}
+
+input[type=submit] {
+  width: 40%
+}
+
+textarea {
+  width: 95%;
+  resize: none
+}
+
+select {
+  width: 95%
+}
+
+button {
+  font: 24px sans-serif;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+ul {
+  text-align: left
+}
+
+h3 {
+  text-align: center
+}
+
+form ul {
+  list-style: none
+}
+
+.configView{
+  width: 40%;
+  position: relative;
+  margin-left: 60%;
+  text-align: right;
+}
+.configView select{
+  width: 50%;
+  display: inline;
+}
+
+#selectRows{display: inline}
+
+
+@media (max-width: 760px) {
+  .col2 table{
+    width: 100%;
+    word-break:normal;
+  }
+  .col2 table tr td:nth-child(odd), .col2 table tr th:nth-child(odd){
+    display: none;
+  }
+  .col2 table tr td:last-child, .col2 table tr th:last-child,
+  .col2 table tr td:first-child, .col2 table tr th:first-child{
+    display: block;
+    text-align: center;
+  }
+}
+@media (max-width: 420px) {
+
+  .col2 table li{
+    width: 100%;
+    word-break:break-all;
+    text-wrap: initial;
+  }
+}
+
+@media(max-width: 360px){
+  .col2 table button{
+    font-size: 14px;
+    width: 25px;
+    margin-left: 0px;
+  }
+}
+
+@media (min-width: 810px) {
+  .col1 {
+    width: 30%;
+  }
+  .col2{
+    width: 60%;
+    position: relative;
+    word-break: keep-all;
+  }
+  .col2 table tr th{
+    word-break: keep-all;
+  }
+  .close{display: none}
+  form {
+    display: block
+  }
+  .configView{
+    width: 30%;
+    position: relative;
+    margin-left: 70%;
+    text-align: right;
+  }
+  .configView select{
+    width: 30%;
+    display: inline;
+  }
+}
+
+.col2 table tr th a {
+  color:white;
+  text-decoration: none;
+}
+.col2 table tr th a:visited {
+  color:white;
+  text-decoration: none;
+}
+.col2 table tr th a:link {
+  color:white;
+  text-decoration: none;
+}
+
+#vanilla{
+  position: static;
+  bottom: 0px;
+  right: 0px;
+}
+
+.show{display: block}
+.hide{display: none}

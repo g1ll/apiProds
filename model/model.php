@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require_once 'config.php';
 global $user,$password,$drive,$host,$name;
 
 function connect(){
@@ -46,6 +46,7 @@ function executeQuery($query, $parameters,$type=1) {
 }
 
 function executeCommand($command, $parameters, $sequence = null) {
+
     global $drive;
     try {
         $preparedStatment = null;
@@ -72,6 +73,7 @@ function executeCommand($command, $parameters, $sequence = null) {
 }
 
 function executeMultiCommands(array $commands, array $multi_parameters, $sequence = null) {
+
     global $drive;
     $connection = null;
     //debug([$commands,$multi_parameters]);
@@ -123,6 +125,7 @@ function executeMultiCommands(array $commands, array $multi_parameters, $sequenc
 }
 
 function bindValuesParameters(&$stm,$par){
+
     if($par){
         if(array_diff_key($par,array_keys(array_keys($par)))){
             foreach ($par as $key => $value) {
@@ -140,9 +143,11 @@ function bindValuesParameters(&$stm,$par){
 }
 
 function debugStatment(PDOStatement $stm,PDOException $error){
+
     var_dump($stm->errorInfo());
     var_dump($stm);
     var_dump($stm->fetchAll());
     $stm->debugDumpParams();
     debug("\n".$error->getMessage()."\n".$error->getTraceAsString());
+
 }

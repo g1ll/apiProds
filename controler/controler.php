@@ -1,6 +1,6 @@
 <?php
-require 'config.php';
-require './controler/login.php';
+require_once 'config.php';
+require_once './controler/login.php';
 
 function route($query = null)
 {
@@ -75,18 +75,8 @@ function sendjson($var = NULL)
 
 function pageNotFound($view)
 {
-    $dir = explode('/',__DIR__);
-    $uri = explode('/',$_SERVER['REQUEST_URI']);
-    array_shift($uri);
-    $dir_name = array_pop($dir);
-    $base_url = '';
-    foreach ($uri as $path)
-        if($path!==$dir_name) {
-            $base_url .= '/' . $path;
-        }else{
-            $base_url.='/'.$dir_name;
-            break;
-        }
+    global $base_url;
+//    debug("http://$_SERVER[HTTP_HOST]$base_url/$view/404.html");
     header("Location:http://$_SERVER[HTTP_HOST]$base_url/$view/404.html");
     die;
 }
