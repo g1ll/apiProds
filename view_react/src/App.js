@@ -5,10 +5,11 @@ import logo from './logo192.png';
 import './App.css';
 
 function App() {
-  const apiUrl='http://localhost/2019/tsi/dsw/apiProds';
-  // const apiUrl='http://g1ll.epizy.com/apiProds';
+  // const apiUrl='http://localhost/2019/tsi/dsw/apiProds';
+    const apiUrl='http://g1ll.000webhostapp.com/apiProds';
+    // const apiUrl='http://g1ll.epizy.com/apiProds';
 
-  const [busca,setBusca] = useState('asdf')
+    const [busca,setBusca] = useState('asdf')
   const [data,setData] = useState([])
 
   useEffect(()=> {

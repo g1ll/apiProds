@@ -2,7 +2,6 @@
 session_start();
 function login($param=null){
     $logged = false;
-
     if($_POST) {
         $user = filter_input(INPUT_POST,'user',FILTER_SANITIZE_STRING);
         $pass = filter_input(INPUT_POST,'key',FILTER_SANITIZE_STRING);

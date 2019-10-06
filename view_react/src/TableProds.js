@@ -22,7 +22,7 @@ function TableProds(props){
                     setLitProds([...listProds.reverse()]);
                 }}>
                     {listProds?(Number(listProds[1].id_prod)>Number(listProds[0].id_prod)) ? ("\u25b2"):("\u25bc"):("\u25b2")}
-                    &nbsp;ID</button></th>
+                    &nbsp;&nbsp;ID</button></th>
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Qtd</th>

@@ -127,6 +127,7 @@ function mostrarDados(data) {
         }
     }
     let row = '';
+    document.querySelector('tbody').innerHTML='';
     data.forEach(obj => {
 
         row = '<tr>'
