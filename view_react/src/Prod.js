@@ -20,7 +20,7 @@ function Prod(props) {
                 :'Sem Itens'}
             </td>
             <td>
-                <ButttonsProd produto={produto}/>
+                <ButttonsProd id={produto.id_prod}/>
             </td>
         </tr>);
 }

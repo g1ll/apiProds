@@ -1,10 +1,13 @@
-let apifolder = 'apiProds';
-let url = (window.location.pathname).split('/');
-url.splice(url.findIndex((v)=>v===apifolder)+1,url.length)
-url.pop();
-url = url.join('/');
-
+const apifolder = 'apiProds';
+const url = getBaseUrl()
 const api = `${url}/${apifolder}`;
+
+function getBaseUrl(){
+    let urlarray = (window.location.pathname).split('/');
+    urlarray.splice(urlarray.findIndex((v)=>v===apifolder)+1,urlarray.length)
+    urlarray.pop();
+    return urlarray.join('/');
+}
 
 async function addProdutoAPI(produto) {
     console.log({produto})
