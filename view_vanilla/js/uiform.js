@@ -1,4 +1,17 @@
-let close_button = document.querySelector('.close');
+const form = document.cadastro;
+const close_button = document.querySelector('.close');
+
+cadastro.nome.onchange = function (){
+    console.log(this.value);
+    form.desc.value = "Digite a descricao";
+    const sub = form.submit;
+    console.log(sub);
+    if (this.value !== '') {
+        sub.removeAttribute('disabled');
+    } else {
+        sub.setAttribute('disabled', '');
+    }
+};
 
 close_button.onclick = function(){
     closeForm(document.querySelector('form'),close_button);

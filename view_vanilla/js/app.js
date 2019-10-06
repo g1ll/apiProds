@@ -1,3 +1,5 @@
+
+
 let listProds = []
 let prodIdedit = 0
 const cadastro = document.cadastro
@@ -5,17 +7,17 @@ let ordem = 0
 let qtd_prods = 5
 let idInit = 1
 
-document.querySelector(".exit").onclick=exit;
+document.querySelector(".exit").onclick = exit;
 cadastro.onsubmit = processaCadastro
 
-verificaLogin(async function(){
+verificaLogin(async function () {
     document.body.className = "visible";
     listProds = await getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`);
     mostrarDadosConsole(listProds);
     mostrarDados(listProds)
 });
 
-async function processaCadastro(e){
+async function processaCadastro(e=null) {
     e.preventDefault();
     await verificaLogin();
     const submit = document.querySelector('input[type="submit"]');
@@ -35,23 +37,23 @@ async function processaCadastro(e){
         descricao: this.desc.value,
         qtd_estoque: this.qtd.value,
         preco: this.preco.value,
-        importado: (this.ori.value==='Importado')?1:0,
+        importado: (this.ori.value === 'Importado') ? 1 : 0,
         desco: (selectdesco.length) ? selectdesco : 'Sem Descontos',
         itens: (listItens.length) ? listItens : 'Sem Itens'
     };
     if (!prodIdedit) { //Cadastrar
         ordem = 1;
         idInit = -1;
-        if(await addProdutoAPI(produto)){
+        if (await addProdutoAPI(produto)) {
             listProds = await getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`);
-        }else{
+        } else {
             console.error("Erro ao cadastrar Produto");
         }
-    }else { //Salvar
+    } else { //Salvar
         produto.id_prod = prodIdedit;
-        if(await editProdutoAPI(produto)){
+        if (await editProdutoAPI(produto)) {
             listProds = await getProdutosAPIasync(`${produto.id_prod}/${qtd_prods}/${ordem}`);
-        }else{
+        } else {
             console.error("Erro ao editar Produto");
         }
         prodIdedit = 0;
@@ -63,25 +65,28 @@ async function processaCadastro(e){
     mostrarDadosConsole(listProds);
     mostrarDados(listProds)
     this.reset()
-    if(innerWidth<720)
-        closeForm(cadastro,button);
+    if (innerWidth < 720)
+        closeForm(cadastro, button);
 }
 
-function removeProd(idpro) {
-    verificaLogin(async function(){
+function removeProd(idpro=null) {
+
+    if(idpro)
+    verificaLogin(async function () {
         if (confirm('Você excluirá este item definitivamente!')) {
-            if(await delProdutoAPI(idpro)){
+            if (await delProdutoAPI(idpro)) {
                 listProds = await getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`);
                 mostrarDadosConsole(listProds);
                 mostrarDados(listProds)
-            }else{
+            } else {
                 alert("INFELIZMENTE NÃO FOI POSSÍVEL DELETAR O PRODUTO")
             }
-        }})
+        }
+    })
 }
 
 function editProd(idpro) {
-    verificaLogin(()=> {
+    verificaLogin(() => {
         console.clear()
         const prod = listProds.find((prod) => Number(prod.id_prod) === idpro);
         console.log(prod);
@@ -99,7 +104,7 @@ function editProd(idpro) {
             cadastro.submit.value = 'Salvar';
             prodIdedit = prod.id_prod;
             cadastro.nome.focus();
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
             cadastro.setAttribute('style', 'border:solid 2px red;border-radius:10px')
             displayForm(cadastro, button)
         } else {
@@ -113,65 +118,59 @@ function mostrarDadosConsole(data) {
     console.table(data)
 }
 
-function  mostrarDados(data){
-    if(idInit>0){
-        if(ordem) {
-            idInit = listProds[listProds.length-1].id_prod
-        }else {
+function mostrarDados(data) {
+    if (idInit > 0) {
+        if (ordem) {
+            idInit = listProds[listProds.length - 1].id_prod
+        } else {
             idInit = listProds[0].id_prod
         }
     }
-    let rows ='';
+    let row = '';
     data.forEach(obj => {
-        rows += '<tr>'
+
+        row = '<tr>'
         Object.entries(obj).map(([key, prod]) => {
-            if(key==='importado')
-                prod=(Number(prod))?'Importado':'Nacional'
-                if(Array.isArray(prod)){
-                    rows += `<td>${(prod.length)?
-                        `<ul><li>${prod.join('</li><li>')}</li><ul>`
-                        :'---'}</td>`
-                }else{rows += '<td>'+prod+'</td>'}
+            if (key === 'importado')
+                prod = (Number(prod)) ? 'Importado' : 'Nacional'
+            if (Array.isArray(prod)) {
+                row += `<td>${(prod.length) ?
+                    `<ul><li>${prod.join('</li><li>')}</li><ul>`
+                    : '---'}</td>`
+            } else {
+                row += '<td>' + prod + '</td>'
+            }
         })
-        rows += `<td><button title='Remover este item.' 
-                onclick='removeProd(${obj.id_prod})'>
+        row += `<td><button onclick="removeProd(${obj.id_prod})" id="bt_rm_${obj.id_prod}" title='Remover este item.' >
                         &#128465</button>
                         <button title='Editar este item.' 
                             onclick='editProd(${obj.id_prod})'>
                         &#x270e;</button>
                     </td>`
-        rows += '</tr>'
+        row += '</tr>'
+        document.querySelector('tbody').innerHTML += row
     })
-    document.querySelector('tbody').innerHTML = rows
+    //onclick='removeProd(${obj.id_prod})'
+    // document.querySelector('tbody').innerHTML = row
 }
 
 function order(el) {
-   verificaLogin(()=>{
-    if(ordem==0)el.innerHTML = '&#x25bc ID'
-    else el.innerHTML = '&#x25b2 ID';
-    ordem = (ordem==0)?1:0;
-    console.log(ordem)
-    mostrarDados(listProds.reverse())
-});}
-
-function abilitaSubmit(el) {
-    console.log(el.value);
-    const form = document.cadastro;
-    form.desc.value = "Digite a descricao";
-    const sub = form.submit;
-    console.log(sub);
-    if(el.value!==''){
-        sub.removeAttribute('disabled');
-    }else{sub.setAttribute('disabled','');}
+    verificaLogin(() => {
+        if (ordem == 0) el.innerHTML = '&#x25bc ID'
+        else el.innerHTML = '&#x25b2 ID';
+        ordem = (ordem == 0) ? 1 : 0;
+        console.log(ordem)
+        mostrarDados(listProds.reverse())
+    });
 }
 
-async function verificaLogin(callback=null) {
+async function verificaLogin(callback = null) {
     const logged = await isLoggedAPI();
     if (!logged) {
         alert("Erro de autenticação!!")
         window.location = './login.html'
-    }else{
-        if(callback)callback();
+    } else {
+        if (callback) callback();
     }
 }
 

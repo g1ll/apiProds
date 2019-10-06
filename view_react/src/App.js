@@ -1,29 +1,29 @@
 import React, {useState,useEffect} from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 import TableProds from './TableProds';
 import logo from './logo192.png';
 import './App.css';
 
 function App() {
   const apiUrl='http://localhost/2019/tsi/dsw/apiProds';
-  const [busca,setBusca] = useState('asdf')
-  const [data,setData] = useState(false)
+  // const apiUrl='http://g1ll.epizy.com/apiProds';
 
-  useEffect(()=>{
-    async function loadData(){
+  const [busca,setBusca] = useState('asdf')
+  const [data,setData] = useState([])
+
+  useEffect(()=> {
+    async function loadData() {
       const login = await loga()
       console.log(login);
-      if(login) {
+      if (login) {
         const dataFetch = await fetchData();
         setData(dataFetch)
       }
       console.log(vloga())
     }
-    if(!data)
-      loadData();
-    setBusca('asd')
+    loadData();
     console.log(data)
-  },[data]);
+  },[]);
 
   return (
       <><div className='col1'>
@@ -32,17 +32,19 @@ function App() {
       </div>
         <div className='col2'>
           <h3>Produtos Cadastrados</h3>
-          {(data)?(<TableProds produtos={data}/>):(<h4>Sem Produtos</h4>)}
+          {(data.length>0)?(<TableProds produtos={data}/>):
+              (<h4>Carregando Produtos...</h4>)}
         </div>
         <img src={logo} width={20}
-             style={{position:'fixed',top:'0px',right:'0px'}}/>
+             style={{position:'fixed',top:'0px',right:'0px'}}
+        />
       </>
   );
 
   async function fetchData() {
     try {
-      const resp = await axios.get(`${apiUrl}/produto/nome/${busca}`);
-      const dados =  resp.data;
+      const resp = await Axios.get(`${apiUrl}/produto/nome/${busca}`);
+      const dados = resp.data;
       return dados;
     }catch(e){
       console.log(e)
@@ -55,7 +57,7 @@ function App() {
     dataform.append('user','g1ll')
     dataform.append('key','g1ll@dsw');
     try{
-      const resp= await axios.post(`${apiUrl}/login`,dataform,
+      const resp= await Axios.post(`${apiUrl}/login`,dataform,
           { headers: {
         'Content-Type': 'application/x-www-form-urlencoded','Accept': 'application/json'
       }});
@@ -68,9 +70,8 @@ function App() {
   }
 
   async function vloga() {
-
     try{
-      const resp= await axios.get(`${apiUrl}/login`);
+      const resp= await Axios.get(`${apiUrl}/login`);
       const data  = resp.data;
       return data.login;
     }catch(error){
