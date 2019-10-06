@@ -20,7 +20,7 @@ function Prod(props) {
                 :'Sem Itens'}
             </td>
             <td>
-                <ButttonsProd id={produto.id_prod}/>
+                <ButttonsProd id={produto.id_prod} rmProd={props.rmProd} updProd={props.updProd} />
             </td>
         </tr>);
 }
