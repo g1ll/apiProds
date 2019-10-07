@@ -5,11 +5,11 @@ import logo from './logo192.png';
 import './App.css';
 
 function App() {
+  //   const apiUrl='http://g1ll.000webhostapp.com/apiProds/produto';
+  //   const apiUrl='http://g1ll.epizy.com/apiProds/produto';
   const apiUrl='http://localhost/2019/tsi/dsw/apiProds/';
   const axios = Axios.create({baseURL:apiUrl})
-  //   const apiUrl='http://g1ll.000webhostapp.com/apiProds/produto';
-    // const apiUrl='http://g1ll.epizy.com/apiProds/produto';
-  const busca = 'asdf'
+  const [api_params,setApiParams] = useState(['1','10'])
   // const [busca,setBusca] = useState('asdf')
   const [data,setData] = useState([])
 
@@ -40,7 +40,7 @@ function App() {
 
   async function fetchData() {
     try {
-      const resp = await axios.get(`produto/nome/${busca}`);
+      const resp = await axios.get(`produto/${[api_params.join('/')]}`);
       const dados = resp.data;
       return dados;
     }catch(e){
@@ -84,20 +84,31 @@ function App() {
     const login = await loga()
     console.log(login);
     if (login) {
-      alert(`remover prod id: ${id}`)
-      try {
-        const resp = await axios.delete('produto', {data:{id_prod: Number(id)}});
-        (data => {
-          if (data.sucesso)
-            console.log(`Registro ${data.id} excluido.!`)
-          else console.error(`Não foi possível excluir o registro de ID:${id}`)
-          console.table(data);
-        })(resp.data);
-      } catch (error) {
-        console.error("ERRO AO CONECTAR COM A API: " + error)
+      let prod = data.find(p=>p.id_prod===id)
+      if(confirmaExcluir(prod)){
+        try {
+          const resp = await axios.delete('produto', {data:{id_prod: Number(id)}});
+          (data => {
+            if (data.sucesso)
+              console.log(`Registro ${data.id} excluido.!`)
+            else console.error(`Não foi possível excluir o registro de ID:${id}`)
+            console.table(data);
+          })(resp.data);
+        } catch (error) {
+          console.error("ERRO AO CONECTAR COM A API: " + error)
+        }
       }
       loadData();
     }
+  }
+
+  function confirmaExcluir(prod){
+    return window.confirm(`Você excluirá este item definitivamente!
+        \n\t\########### PRODUTO #########\n\t\tID:${Number(prod.id_prod)}
+        \tNome: ${prod.nome}\n\t\tDescrição: 
+        \t\t${(prod.descricao.length>20)?prod.descricao.substr(0,20)+'...' :prod.descricao}
+        ----------------------------------------------------------------
+        \n\t\tTEM CERTEZA QUE DESEJA EXCLUIR ?\n`);
   }
 
   async function editProduto(id) {
@@ -112,7 +123,7 @@ function App() {
     // listProds.map(i=>rev.push(i));
     // console.log({"revFirst":rev[0].id_prod});
     // setLitProds(rev);
-    //COM OPERADOR REST
+    //COM OPERADOR SPREAD
     setData([...data.reverse()]);
   }
 }
