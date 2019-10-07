@@ -1,5 +1,3 @@
-
-
 let listProds = []
 let prodIdedit = 0
 const cadastro = document.cadastro
@@ -12,7 +10,7 @@ cadastro.onsubmit = processaCadastro
 
 verificaLogin(async function () {
     document.body.className = "visible";
-    listProds = await getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`);
+    listProds = await getProdutosAPI(`${idInit}/${qtd_prods}/${ordem}`);
     mostrarDadosConsole(listProds);
     mostrarDados(listProds)
 });
@@ -45,14 +43,14 @@ async function processaCadastro(e=null) {
         ordem = 1;
         idInit = -1;
         if (await addProdutoAPI(produto)) {
-            listProds = await getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`);
+            listProds = await getProdutosAPI(`${idInit}/${qtd_prods}/${ordem}`);
         } else {
             console.error("Erro ao cadastrar Produto");
         }
     } else { //Salvar
         produto.id_prod = prodIdedit;
         if (await editProdutoAPI(produto)) {
-            listProds = await getProdutosAPIasync(`${produto.id_prod}/${qtd_prods}/${ordem}`);
+            listProds = await getProdutosAPI(`${produto.id_prod}/${qtd_prods}/${ordem}`);
         } else {
             console.error("Erro ao editar Produto");
         }
@@ -75,7 +73,7 @@ function removeProd(idpro=null) {
     verificaLogin(async function () {
         if (confirm('Você excluirá este item definitivamente!')) {
             if (await delProdutoAPI(idpro)) {
-                listProds = await getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`);
+                listProds = await getProdutosAPI(`${idInit}/${qtd_prods}/${ordem}`);
                 mostrarDadosConsole(listProds);
                 mostrarDados(listProds)
             } else {

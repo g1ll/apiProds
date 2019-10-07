@@ -11,7 +11,7 @@ seletor.onchange=async function() {
         mostrarDados(listProds)
     } else {
         console.log(`pedir mais: ${idInit}/${qtd_prods}/${ordem}`)
-        listProds = await getProdutosAPIasync(`${idInit}/${qtd_prods}/${ordem}`);
+        listProds = await getProdutosAPI(`${idInit}/${qtd_prods}/${ordem}`);
         mostrarDadosConsole(listProds);
         mostrarDados(listProds)
     }

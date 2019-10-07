@@ -1,11 +1,9 @@
 const apifolder = 'apiProds';
-const url = getBaseUrl()
-const api = `${url}/${apifolder}`;
+const url_api = getBaseUrl(apifolder);
 
-function getBaseUrl(){
+function getBaseUrl(folder){
     let urlarray = (window.location.pathname).split('/');
-    urlarray.splice(urlarray.findIndex((v)=>v===apifolder)+1,urlarray.length)
-    urlarray.pop();
+    urlarray.splice(urlarray.findIndex((v)=>v===folder)+1,urlarray.length)
     return urlarray.join('/');
 }
 
@@ -21,7 +19,7 @@ async function addProdutoAPI(produto) {
     });
     // dataform.append('produto',JSON.stringify(produto)),
     try{
-        const resp = await fetch(api + '/produto/', {
+        const resp = await fetch(url_api + '/produto/', {
             method: 'POST',
             // body: dataform,
             body: dataform,
@@ -45,7 +43,7 @@ async function addProdutoAPI(produto) {
 
 async function editProdutoAPI(produto) {
     try {
-        const resp = await fetch(api+'/produto/', {
+        const resp = await fetch(url_api+'/produto/', {
             method: 'PUT',
             body: JSON.stringify(produto),
             // body: dataform,
@@ -69,7 +67,7 @@ async function editProdutoAPI(produto) {
 
 async function delProdutoAPI(id){
     try{
-        const resp = await fetch(api+'/produto/', {
+        const resp = await fetch(url_api+'/produto/', {
             method: 'DELETE',
             body: JSON.stringify({id_prod:id}),
             // body: dataform,
@@ -90,11 +88,11 @@ async function delProdutoAPI(id){
     }
 }
 
-async function getProdutosAPIasync(req) {
+async function getProdutosAPI(req) {
     const requisicao = '/produto/'+req;
     console.info("%cFUNÇÃO COM ASYNC/AWAIT SINTAXE","color:green");
     try{
-        const resp = await fetch(api+requisicao, {
+        const resp = await fetch(url_api+requisicao, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors'
@@ -137,7 +135,7 @@ function validaApi(data) {
 
 async function isLoggedAPI() {
     try {
-        const resp = await fetch(api + '/login', {
+        const resp = await fetch(url_api + '/login', {
             method: 'GET',
             //headers: { 'Content-Type': 'application/json' },
             //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -155,7 +153,7 @@ async function isLoggedAPI() {
 
 async function logoutAPI() {
     try {
-        const resp = await fetch(api + '/login/logout', {
+        const resp = await fetch(url_api + '/login/logout', {
             method: 'GET',
             //headers: { 'Content-Type': 'application/json' },
             //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -177,7 +175,7 @@ async function loginAPI(user,key) {
     dataform.append('user',user)
     dataform.append('key',key);
     try{
-        const resp= await fetch(api+'/login', {
+        const resp= await fetch(url_api+'/login', {
             method: 'POST',
             body: dataform,
             //headers: { 'Content-Type': 'application/json' },
