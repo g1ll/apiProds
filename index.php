@@ -6,6 +6,6 @@ header('Access-Control-Allow-Origin: *');
 
 $query = filter_input(INPUT_GET,'query');
 
-require './controler/controler.php';
+require './controller/controller.php';
 
 route($query);

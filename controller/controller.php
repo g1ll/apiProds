@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-require_once './controler/login.php';
+require_once './controller/login.php';
 
 function route($query = null)
 {
@@ -9,30 +9,30 @@ function route($query = null)
     $method = strtolower($_SERVER['REQUEST_METHOD']);
     $params = explode('/', $query);
 
-    $controler = $params[0];
-    $file_controler = './controler/' . $controler . '.php';
+    $controller = $params[0];
+    $file_controler = './controller/' . $controller . '.php';
 
-    if (file_exists($file_controler) && $controler !== 'controler'
-        && $controler !== 'view' && $controler !== 'model') {
+    if (file_exists($file_controler) && $controller !== 'controller'
+        && $controller !== 'view' && $controller !== 'model') {
 
         require_once $file_controler;
 
-        if ($controler === 'login') {
-            $action = $controler;
+        if ($controller === 'login') {
+            $action = $controller;
         } else {
             if (isLogged()) {
                 switch ($method) {
                     case 'put':
-                        $action = "upd_$controler";
+                        $action = "upd_$controller";
                         break;
                     case 'delete':
-                        $action = "del_$controler";
+                        $action = "del_$controller";
                         break;
                     case 'get':
-                        $action = "get_$controler";
+                        $action = "get_$controller";
                         break;
                     case 'post':
-                        $action = "add_$controler";
+                        $action = "add_$controller";
                         break;
                     default:
                         $action = null;
