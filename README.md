@@ -1,3 +1,3 @@
 # apiProds
 
-projeto de exemplo para a disciplina de DSW do CSTSI
+Projeto de exemplo para a disciplina de DSW do CSTSI
