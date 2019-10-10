@@ -21,9 +21,7 @@ async function addProdutoAPI(produto) {
     try{
         const resp = await fetch(url_api + '/produto/', {
             method: 'POST',
-            // body: dataform,
             body: dataform,
-            // headers: { 'Content-Type': 'application/json' },
             // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             // headers: { 'Content-Type': 'multipart/form-data' },
             mode: 'cors'

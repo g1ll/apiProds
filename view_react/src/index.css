@@ -25,7 +25,7 @@ td {
   border: dotted 1px #000;
   margin: 0;
   padding: 0;
-  min-width: 4%
+  /*min-width: 4%*/
 }
 
 tr:nth-child(even) {

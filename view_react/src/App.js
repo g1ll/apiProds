@@ -10,7 +10,9 @@ function App() {
   const apiUrl='http://localhost/2019/tsi/dsw/apiProds/';
   const axios = Axios.create({baseURL:apiUrl})
   const [api_params,setApiParams] = useState(['1','10'])
+
   // const [busca,setBusca] = useState('asdf')
+
   const [data,setData] = useState([])
 
   useEffect(()=> {
