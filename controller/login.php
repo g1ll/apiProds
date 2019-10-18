@@ -5,6 +5,8 @@ function login($param=null){
     if($_POST) {
         $user = filter_input(INPUT_POST,'user',FILTER_SANITIZE_STRING);
         $pass = filter_input(INPUT_POST,'key',FILTER_SANITIZE_STRING);
+
+
         if($user==='g1ll'&&$pass==='g1ll@dsw') { //TODO: tabela usuario
             $_SESSION['user'] = $user;
             $logged = true;

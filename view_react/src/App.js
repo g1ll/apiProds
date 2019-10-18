@@ -3,6 +3,7 @@ import Axios from 'axios';
 import TableProds from './TableProds';
 import logo from './logo192.png';
 import './App.css';
+import FormAddProd from "./FormAddProd";
 
 function App() {
   //   const apiUrl='http://g1ll.000webhostapp.com/apiProds/produto';
@@ -23,6 +24,7 @@ function App() {
       <><div className='col1'>
         <h1>REACT</h1>
       {/*  TODO: Component Form*/}
+      <FormAddProd />
       </div>
         <div className='col2'>
           <h3>Produtos Cadastrados</h3>
@@ -118,13 +120,13 @@ function App() {
   }
   
   function reverseData() {
-    //SEM OPERADOR REST
+    //SEM OPERADOR SPREAD
     // console.log({"listProdFirst":listProds[0].id_prod});
-    // listProds.reverse();
+    // data.reverse();
     // let rev = [];
-    // listProds.map(i=>rev.push(i));
+    // data.map(i=>rev.push(i));
     // console.log({"revFirst":rev[0].id_prod});
-    // setLitProds(rev);
+    // setData(rev);
     //COM OPERADOR SPREAD
     setData([...data.reverse()]);
   }
