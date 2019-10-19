@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import Axios from 'axios';
 import TableProds from './TableProds';
 import logo from './logo192.png';
@@ -10,7 +10,7 @@ function App() {
   //   const apiUrl='http://g1ll.epizy.com/apiProds/produto';
   const apiUrl='http://localhost/2019/tsi/dsw/apiProds/';
   const axios = Axios.create({baseURL:apiUrl})
-  const [api_params,setApiParams] = useState(['1','10'])
+  const [api_params,setApiParams] = useState(['1','5'])
 
   // const [busca,setBusca] = useState('asdf')
 
@@ -20,24 +20,28 @@ function App() {
     loadData();
   },[]);
 
-  return (
-      <><div className='col1'>
-      <FormAddProd />
-      </div>
+  return (<Fragment>
+      <div className='app'>
+        <div className='col1'>
+          <FormAddProd />
+        </div>
         <div className='col2'>
           <h3>Produtos Cadastrados</h3>
           {(data.length>0)?
               (<TableProds
-                    produtos={data}
-                    rmProd={removeProduto}
-                    updProd={editProduto}
-                    revList={reverseData}/>):
+                  produtos={data}
+                  rmProd={removeProduto}
+                  updProd={editProduto}
+                  revList={reverseData}/>):
               (<h4>Carregando Produtos...</h4>)}
         </div>
-        <img src={logo} width={20}
-             style={{position:'fixed',top:'0px',right:'0px'}}
-        />
-      </>
+      </div>
+        <div className='devReact'>Desenvolvido com&nbsp;
+          <a target='_blank' href="https://pt-br.reactjs.org/docs/getting-started.html" title="React">
+          <img src={logo} width={20}/>
+          </a>
+        </div>
+  </Fragment>
   );
 
   async function fetchData() {

@@ -11,8 +11,8 @@ $drive="mysql";
 //$drive="pgsql";
 
 //$view='view';
-$view='view_vanilla';
-//$view='view_react/build';
+//$view='view_vanilla';
+$view='view_react/build';
 
 function getBaseURL(){
     $dir = explode('/',__DIR__);

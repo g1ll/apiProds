@@ -9,7 +9,7 @@ document.querySelector(".exit").onclick = exit;
 cadastro.onsubmit = processaCadastro
 
 verificaLogin(async function () {
-    document.body.className = "visible";
+    document.querySelector('.main').className = "main visible";
     listProds = await getProdutosAPI(`${idInit}/${qtd_prods}/${ordem}`);
     mostrarDadosConsole(listProds);
     mostrarDados(listProds)

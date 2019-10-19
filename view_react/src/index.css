@@ -235,10 +235,12 @@ form ul {
   text-decoration: none;
 }
 
-#vanilla{
-  position: static;
-  bottom: 0px;
-  right: 0px;
+.devReact{
+  position: relative;
+  margin: 0 auto;
+  width: 20%;
+  min-width: 150px;
+  text-align: center;
 }
 
 .show{display: block}

@@ -3,8 +3,16 @@ import './css/form.css'
 
 function FormAddProd(props) {
 
-    const [mostrar,setMostrar] = useState(true)
+    const [mostrar,setMostrar] = useState(window.innerWidth>810)
     const [disabled,setDisabled] = useState(true)
+
+    window.onresize=()=>{
+        if(window.innerWidth>810){
+            setMostrar(true)
+        }else{
+            if(disabled)setMostrar(false)
+        }
+    }
 
     return (<>
             <h3>Cadastro de Produtos</h3>
@@ -12,6 +20,7 @@ function FormAddProd(props) {
                     onClick={
                         ()=>{
                             setMostrar(mostrar?false:true)
+                            setDisabled(true)
                         }
                     }>
                 {mostrar?"\u2715":"\u2630"}</button>
@@ -19,7 +28,7 @@ function FormAddProd(props) {
         {mostrar? (
             <form name="cadastro">
                 <br/>Nome:<input type="text" name="nome" required onChange={()=>{setDisabled(false)}}/>
-                <br/>Descrição:<br/><textarea rows="5" cols="30" name="desc" draggable="false"></textarea>
+                <br/>Descrição:<br/><textarea rows="5" cols="30" name="desc" draggable="false"/>
                 <br/>Quantidade em Estoque:<input type="number" name="qtd"/>
                 <br/>Preço:<input type="number" name="preco" step="0.01"/>
                 <br/>Origem

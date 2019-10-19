@@ -1,6 +1,6 @@
 const form = document.cadastro;
 const close_button = document.querySelector('.close');
-
+let disabilita = true;
 cadastro.nome.onchange = function (){
     console.log(this.value);
     form.desc.value = "Digite a descricao";
@@ -8,8 +8,10 @@ cadastro.nome.onchange = function (){
     console.log(sub);
     if (this.value !== '') {
         sub.removeAttribute('disabled');
+        disabilita = false;
     } else {
         sub.setAttribute('disabled', '');
+        disabilita = true;
     }
 };
 
@@ -21,7 +23,7 @@ window.onresize=()=>{
     if(window.innerWidth>810){
         displayForm(document.querySelector('form'),close_button)
     }else{
-        if(document.querySelector('form').className!=='show')
+        if(document.querySelector('form').className!=='show'||disabilita)
         closeForm(document.querySelector('form'),close_button)
     }
 }
