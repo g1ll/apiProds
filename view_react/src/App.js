@@ -22,8 +22,6 @@ function App() {
 
   return (
       <><div className='col1'>
-        <h1>REACT</h1>
-      {/*  TODO: Component Form*/}
       <FormAddProd />
       </div>
         <div className='col2'>
