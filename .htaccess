@@ -1,6 +1,7 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /2019/tsi/dsw/apiProds/
+  RewriteBase /apiProds/
+  ##RewriteBase /apiProds/2019/tsi/dsw/apiProds/
   RewriteCond $1 !^(index\.php|images|assets|robots\.txt|bootstrap.min.css\.map)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -9,13 +10,13 @@
 </IfModule>
 
 <IfModule !mod_rewrite.c>
-  ErrorDocument 404 /2019/tsi/dsw/apiProds/view/404.html
-  ErrorDocument 403 /2019/tsi/dsw/apiProds/view/404.html
+  ErrorDocument 404 /apiProds/view/404.html
+  ErrorDocument 403 /apiProds/view/404.html
 </IfModule>
 ##para não listar arquivos e subpastas do servidor
 Options -Indexes
-ErrorDocument 404 /2019/tsi/dsw/apiProds/view/404.html
-ErrorDocument 403 /2019/tsi/dsw/apiProds/view/404.html
+ErrorDocument 404 /apiProds/view/404.html
+ErrorDocument 403 /apiProds/view/404.html
 
 <Files "all_errors.log">
   Require all denied
