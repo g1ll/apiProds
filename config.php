@@ -10,9 +10,12 @@ $password="r00t";
 $drive="mysql";
 //$drive="pgsql";
 
+//echo $base_url;
+//die;
+
 //$view='view';
-//$view='view_vanilla';
-$view='view_react/build';
+$view='view_vanilla';
+//$view='view_react/build';
 
 function getBaseURL(){
     $dir = explode('/',__DIR__);
