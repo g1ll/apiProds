@@ -5,6 +5,15 @@ function FormAddProd(props) {
 
     const [mostrar,setMostrar] = useState(window.innerWidth>810)
     const [disabled,setDisabled] = useState(true)
+    const [prod,setProd] = useState({
+        nome: '',
+        descricao: '',
+        qtd_estoque: 0,
+        preco: 0.0,
+        importado: 0,
+        desco: 'Sem Descontos',
+        itens: 'Sem Itens'
+    })
 
     window.onresize=()=>{
         if(window.innerWidth>810){
@@ -12,6 +21,27 @@ function FormAddProd(props) {
         }else{
             if(disabled)setMostrar(false)
         }
+    }
+
+    function submitForm(event){
+        event.preventDefault();
+        alert("Adicionar Produto");
+        props.addProd(prod);
+    }
+
+    const handleChangeNome=(event)=>{
+        setDisabled(false)
+        setProd({...prod, nome:event.target.value})
+    }
+
+    const handleChangeDescricao=(event)=>{
+        setProd({...prod, descricao:event.target.value})
+    }
+    const handleChangeEstoque =(event)=>{
+        setProd({...prod, qtd_estoque:event.target.value})
+    }
+    const handleChangePreco=(event)=>{
+        setProd({...prod, preco:event.target.value})
     }
 
     return (<>
@@ -26,11 +56,14 @@ function FormAddProd(props) {
                 {mostrar?"\u2715":"\u2630"}</button>
 
         {mostrar? (
-            <form name="cadastro">
-                <br/>Nome:<input type="text" name="nome" required onChange={()=>{setDisabled(false)}}/>
-                <br/>Descrição:<br/><textarea rows="5" cols="30" name="desc" draggable="false"/>
-                <br/>Quantidade em Estoque:<input type="number" name="qtd"/>
-                <br/>Preço:<input type="number" name="preco" step="0.01"/>
+            <form name="cadastro" onSubmit={submitForm}>
+                <br/>Nome:<input type="text" name="nome" required
+                                 onChange={handleChangeNome}
+                                 value={prod.nome}/>
+                <br/>Descrição:<br/>
+                <textarea rows="5" cols="30" name="desc" draggable="false" onChange={handleChangeDescricao}/>
+                <br/>Quantidade em Estoque:<input type="number" name="qtd" onChange={handleChangeEstoque}/>
+                <br/>Preço:<input type="number" name="preco" step="0.01" onChange={handleChangePreco}/>
                 <br/>Origem
                 <ul>
                     <li><input type="radio" name="ori" value="Nacional"/>Nacional</li>

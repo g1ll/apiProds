@@ -10,20 +10,19 @@ function App() {
   //   const apiUrl='http://g1ll.epizy.com/apiProds/produto';
   const apiUrl='http://localhost/2019/tsi/dsw/apiProds/';
   const axios = Axios.create({baseURL:apiUrl})
-  const [api_params,setApiParams] = useState(['1','5'])
 
   // const [busca,setBusca] = useState('asdf')
 
   const [data,setData] = useState([])
 
   useEffect(()=> {
-    loadData();
+        loadData();
   },[]);
 
   return (<Fragment>
       <div className='app'>
         <div className='col1'>
-          <FormAddProd />
+          <FormAddProd addProd = {addProduto} />
         </div>
         <div className='col2'>
           <h3>Produtos Cadastrados</h3>
@@ -37,16 +36,18 @@ function App() {
         </div>
       </div>
         <div className='devReact'>Desenvolvido com&nbsp;
-          <a target='_blank' href="https://pt-br.reactjs.org/docs/getting-started.html" title="React">
-          <img src={logo} width={20}/>
+          <a  rel="noopener noreferrer"  target='_blank' href="https://pt-br.reactjs.org/docs/getting-started.html" title="React">
+          <img src={logo} width={20} alt='logo'/>
           </a>
         </div>
   </Fragment>
   );
 
-  async function fetchData() {
+  async function fetchData(params=null) {
+    params = (params)?params:'1/5';
     try {
-      const resp = await axios.get(`produto/${[api_params.join('/')]}`);
+      console.log(params);
+      const resp = await axios.get(`produto/${params}`);
       const dados = resp.data;
       return dados;
     }catch(e){
@@ -72,18 +73,20 @@ function App() {
     }
   }
 
-  async function loadData() {
+  async function loadData(params=null) {
     const login = await loga()
     console.log(login);
     if (login) {
-      const dataFetch = await fetchData();
+      const dataFetch = await fetchData(params);
       console.log(dataFetch);
       setData([...dataFetch])
     }
   }
 
-  async function addProduto() {
+  async function addProduto(produto) {
     alert('add produto');
+    console.log(produto);
+    loadData('-1/5/1');
   }
 
   async function removeProduto(id) {
@@ -110,7 +113,7 @@ function App() {
 
   function confirmaExcluir(prod){
     return window.confirm(`Você excluirá este item definitivamente!
-        \n\t\########### PRODUTO #########\n\t\tID:${Number(prod.id_prod)}
+        \n\t########### PRODUTO #########\n\t\tID:${Number(prod.id_prod)}
         \tNome: ${prod.nome}\n\t\tDescrição: 
         \t\t${(prod.descricao.length>20)?prod.descricao.substr(0,20)+'...' :prod.descricao}
         ----------------------------------------------------------------
