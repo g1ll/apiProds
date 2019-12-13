@@ -18,6 +18,7 @@ async function addProdutoAPI(produto) {
         else dataform.append(key, value)
     });
     // dataform.append('produto',JSON.stringify(produto)),
+
     try{
         const resp = await fetch(url_api + '/produto/', {
             method: 'POST',

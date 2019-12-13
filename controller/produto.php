@@ -3,17 +3,18 @@ require './model/produtoDAO.php';
 
 function upd_produto($newprod=null){
     if($newprod){
-        $produto = updateProduto((array)$newprod);
+        $produto = updateProduto($newprod);
         if($produto)
             return ["confirm"=>true,"msg"=>'Produto atualizado!',"produto"=>$produto];
         else
             return ["confirm"=>false,"msg"=>'Falha ao executar tarefa no banco',"produto"=>$produto];
     }else{
-        return ["confirm"=>false,"msg"=>'Erro ao receber parametros',"produto"=>$_POST];
+        return ["confirm"=>false,"msg"=>'Erro ao receber parametros',"produto"=>$newprod];
     }
 }
 
 function del_produto($data=null){
+    //var_dump($data);die;
     $id = ($data)?$data->id_prod:$data;
     if(filter_var($id, FILTER_VALIDATE_INT)) {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);

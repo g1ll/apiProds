@@ -155,12 +155,12 @@ function updateProduto($produto) {
     $sql = "UPDATE produtos SET nome=?, descricao=?, qtd_estoque=?,
                     preco=?, importado=? WHERE id_prod=?";
 
-    $params = [ $produto['nome'],
-                $produto['descricao'],
-                $produto['qtd_estoque'],
-                $produto['preco'],
-                $produto['importado'],
-                $produto['id_prod']];
+    $params = [ $produto->nome,
+                $produto->descricao,
+                $produto->qtd_estoque,
+                $produto->preco,
+                $produto->importado,
+                $produto->id_prod];
 
     return executeCommand($sql, $params)? $produto: false;
 }

@@ -2,11 +2,13 @@
 global $host,$name,$user,$password,$drive,$view,$base_url;
 
 $base_url = getBaseURL();
-
+//var_dump($base_url);
+//die;
 $host="localhost";
 $name="apiprod";
 $user="root";
-$password="r00t";
+$password="";
+//$password="r00t";
 $drive="mysql";
 //$drive="pgsql";
 
@@ -18,19 +20,23 @@ $view='view_vanilla';
 //$view='view_react/build';
 
 function getBaseURL(){
-    $dir = explode('/',__DIR__);
+    $slash = '/';
+    if(strpos($_SERVER['SERVER_SOFTWARE'],'Win'))
+        $slash = '\\';
+    $dir = explode($slash,__DIR__);
     $uri = explode('/',$_SERVER['REQUEST_URI']);
     array_shift($uri);
     $dir_name = array_pop($dir);
-    $base_url = '';
+    $base_url='';
     foreach ($uri as $path) {
         if ($path !== $dir_name) {
-            $base_url .= '/' . $path;
+            $base_url.= $slash . $path;
         } else {
-            $base_url .= '/' . $dir_name;
+            $base_url .= $slash . $dir_name;
             break;
         }
     }
+    //var_dump($base_url);die;
     return $base_url;
 }
 

@@ -10,35 +10,36 @@ function route($query = null)
     $params = explode('/', $query);
 
     $controller = $params[0];
-    $file_controler = './controller/' . $controller . '.php';
+    $file_controller = './controller/' . $controller . '.php';
 
-    if (file_exists($file_controler) && $controller !== 'controller'
+    if (file_exists($file_controller) && $controller !== 'controller'
         && $controller !== 'view' && $controller !== 'model') {
 
-        require_once $file_controler;
+        require_once $file_controller;
 
         if ($controller === 'login') {
             $action = $controller;
         } else {
-            if (isLogged()) {
-                switch ($method) {
-                    case 'put':
-                        $action = "upd_$controller";
-                        break;
-                    case 'delete':
-                        $action = "del_$controller";
-                        break;
-                    case 'get':
-                        $action = "get_$controller";
-                        break;
-                    case 'post':
-                        $action = "add_$controller";
-                        break;
-                    default:
-                        $action = null;
+            if($method !== 'get') {
+                if (isLogged()) {
+                    switch ($method) {
+                        case 'put':
+                            $action = "upd_$controller";
+                            break;
+                        case 'delete':
+                            $action = "del_$controller";
+                            break;
+                        case 'post':
+                            $action = "add_$controller";
+                            break;
+                        default:
+                            $action = null;
+                    }
+                } else {
+                    return sendjson(['confirm' => false, 'info' => "Erro, sem permissao para acessar API!"]);
                 }
-            } else {
-                return sendjson(['confirm' => false, 'info' => "Erro, sem permissao para acessar API!"]);
+            }else {
+                $action = "get_$controller";
             }
         }
 
