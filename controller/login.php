@@ -7,7 +7,7 @@ function login($param=null){
         $pass = filter_input(INPUT_POST,'key',FILTER_SANITIZE_STRING);
 
 
-        if($user==='ts1'&&$pass==='ts1@dsw') { //TODO: tabela usuario
+        if($user==='g0ll'&&$pass==='g1ll@dsw') { //TODO: tabela usuario
             $_SESSION['user'] = $user;
             $logged = true;
         }
