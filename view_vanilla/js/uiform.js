@@ -38,7 +38,7 @@ function closeForm(form,botao){
     document.querySelector('h3').setAttribute('style', '')
     document.querySelector('h3').innerHTML = 'Cadastrar Produto';
     form.submit.value = 'Cadastrar';
-    form.className = 'hide';
+    form.className = 'hidde';
     //botao.innerHTML='&#8964;'
     botao.innerHTML='&#9776;'
     botao.onclick = ()=>{displayForm(form,botao)};
