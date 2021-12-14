@@ -5,10 +5,10 @@ $base_url = getBaseURL();
 //var_dump($base_url);
 //die;
 $host="localhost";
-$name="apiprod";
+$name="produtos_crud_pdo";
 $user="root";
-$password="";
-//$password="r00t";
+//$password="";
+$password="r00t";
 $drive="mysql";
 //$drive="pgsql";
 
@@ -16,8 +16,8 @@ $drive="mysql";
 //die;
 
 //$view='view';
-$view='view_vanilla';
-//$view='view_react/build';
+//$view='view_vanilla';
+$view='view_react/build';
 
 function getBaseURL(){
     $slash = '/';
